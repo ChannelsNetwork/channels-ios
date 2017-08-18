@@ -9,5 +9,16 @@
 import UIKit
 
 class  ShareCodeViewController: UIViewController {
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "EnableNotifications":
+                let ret = IdentityManager.instance.generateKeyPair()
+                print("Key generation success: \(ret)")
+                break;
+            default:
+                break;
+            }
+        }
+    }
 }

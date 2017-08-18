@@ -14,6 +14,8 @@
 		0DA4F4701F4379700037ED69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4F46E1F4379700037ED69 /* LaunchScreen.storyboard */; };
 		0DF878AD1F46091A0042DEA7 /* a1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF878AC1F46091A0042DEA7 /* a1.png */; };
 		0DF878B01F460AE90042DEA7 /* ShareCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF878AF1F460AE80042DEA7 /* ShareCodeViewController.swift */; };
+		0DF878B41F46302F0042DEA7 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF878B31F46302F0042DEA7 /* NotificationsViewController.swift */; };
+		0DF878B71F4646980042DEA7 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF878B61F4646980042DEA7 /* IdentityManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		0DA4F4711F4379700037ED69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DF878AC1F46091A0042DEA7 /* a1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a1.png; sourceTree = "<group>"; };
 		0DF878AF1F460AE80042DEA7 /* ShareCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareCodeViewController.swift; sourceTree = "<group>"; };
+		0DF878B31F46302F0042DEA7 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		0DF878B61F4646980042DEA7 /* IdentityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 				0DA4F4651F4379700037ED69 /* AppDelegate.swift */,
 				0DA4F4671F4379700037ED69 /* ViewController.swift */,
 				0DA4F4691F4379700037ED69 /* Main.storyboard */,
+				0DF878B51F4646780042DEA7 /* Core */,
 				0DF878AE1F460A150042DEA7 /* Startup */,
 				0DF878A81F4606B10042DEA7 /* Supporting Files */,
 			);
@@ -99,8 +104,17 @@
 			isa = PBXGroup;
 			children = (
 				0DF878AF1F460AE80042DEA7 /* ShareCodeViewController.swift */,
+				0DF878B31F46302F0042DEA7 /* NotificationsViewController.swift */,
 			);
 			name = Startup;
+			sourceTree = "<group>";
+		};
+		0DF878B51F4646780042DEA7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0DF878B61F4646980042DEA7 /* IdentityManager.swift */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +193,8 @@
 				0DF878B01F460AE90042DEA7 /* ShareCodeViewController.swift in Sources */,
 				0DA4F4681F4379700037ED69 /* ViewController.swift in Sources */,
 				0DA4F4661F4379700037ED69 /* AppDelegate.swift in Sources */,
+				0DF878B41F46302F0042DEA7 /* NotificationsViewController.swift in Sources */,
+				0DF878B71F4646980042DEA7 /* IdentityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
