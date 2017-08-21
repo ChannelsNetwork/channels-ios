@@ -13,7 +13,7 @@ class  ShareCodeViewController: UIViewController {
         if let identifier = segue.identifier {
             switch identifier {
             case "EnableNotifications":
-                let ret = IdentityManager.instance.ensureKey()
+                let ret = IdentityManager.instance.ensureKey(autoGenerate: false)
                 print("Key generation success: \(ret)")
                 break;
             default:

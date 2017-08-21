@@ -29,7 +29,7 @@ class IdentityManager {
         self.tagEthAddress = applicationTag + ".ethAddress"
     }
     
-    func ensureKey() -> Bool {
+    func ensureKey(autoGenerate: Bool) -> Bool {
         if self.privateKey != nil && self.publicKey != nil && self.ethPublicKey != nil && self.ethAddress != nil {
             return true
         }
@@ -46,7 +46,10 @@ class IdentityManager {
                 }
             }
         }
-        return generateKeyPair()
+        if (autoGenerate) {
+            return generateKeyPair()
+        }
+        return false
     }
     
     private func generateKeyPair() -> Bool {
