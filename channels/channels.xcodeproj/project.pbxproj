@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D1A3CAD1F47958E00B642A4 /* JSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A3CAC1F47958E00B642A4 /* JSUtils.swift */; };
+		0D1A3CB11F47967800B642A4 /* channels-ios-jsutils.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D1A3CB01F47967800B642A4 /* channels-ios-jsutils.js */; };
 		0DA4F4661F4379700037ED69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA4F4651F4379700037ED69 /* AppDelegate.swift */; };
 		0DA4F4681F4379700037ED69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA4F4671F4379700037ED69 /* ViewController.swift */; };
 		0DA4F46B1F4379700037ED69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4F4691F4379700037ED69 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D1A3CAC1F47958E00B642A4 /* JSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSUtils.swift; sourceTree = "<group>"; };
+		0D1A3CB01F47967800B642A4 /* channels-ios-jsutils.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "channels-ios-jsutils.js"; sourceTree = "<group>"; };
 		0DA4F4621F4379700037ED69 /* channels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = channels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA4F4651F4379700037ED69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DA4F4671F4379700037ED69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D1A3CAF1F47967800B642A4 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				0D1A3CB01F47967800B642A4 /* channels-ios-jsutils.js */,
+			);
+			name = Scripts;
+			path = channels/Scripts;
+			sourceTree = "<group>";
+		};
 		0DA4F4591F4379700037ED69 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +99,7 @@
 		0DF878A91F4607B70042DEA7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0D1A3CAF1F47967800B642A4 /* Scripts */,
 				0DF878AB1F46091A0042DEA7 /* Images */,
 			);
 			name = Resources;
@@ -113,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				0DF878B61F4646980042DEA7 /* IdentityManager.swift */,
+				0D1A3CAC1F47958E00B642A4 /* JSUtils.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -178,6 +193,7 @@
 			files = (
 				0DA4F4701F4379700037ED69 /* LaunchScreen.storyboard in Resources */,
 				0DA4F46D1F4379700037ED69 /* Assets.xcassets in Resources */,
+				0D1A3CB11F47967800B642A4 /* channels-ios-jsutils.js in Resources */,
 				0DA4F46B1F4379700037ED69 /* Main.storyboard in Resources */,
 				0DF878AD1F46091A0042DEA7 /* a1.png in Resources */,
 			);
@@ -194,6 +210,7 @@
 				0DA4F4681F4379700037ED69 /* ViewController.swift in Sources */,
 				0DA4F4661F4379700037ED69 /* AppDelegate.swift in Sources */,
 				0DF878B41F46302F0042DEA7 /* NotificationsViewController.swift in Sources */,
+				0D1A3CAD1F47958E00B642A4 /* JSUtils.swift in Sources */,
 				0DF878B71F4646980042DEA7 /* IdentityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
