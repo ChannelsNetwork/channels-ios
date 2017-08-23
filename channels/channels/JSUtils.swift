@@ -70,4 +70,13 @@ class JSUtils {
         }
         return nil
     }
+    
+    func sign(value: String, privateKeyPem: String) -> String? {
+        if initializeJs() {
+            if let result = self.jsUtils?.invokeMethod("sign", withArguments: [value, privateKeyPem]) {
+                return result.toString()
+            }
+        }
+        return nil
+    }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 
 class IdentityManager {
@@ -151,5 +152,12 @@ class IdentityManager {
         } else {
             print("Failed to save user identity: \(saved)")
         }
+    }
+    
+    func sign(_ obj: Mappable) -> String? {
+        guard let json = obj.toJSONString() else {
+            return nil
+        }
+        return JSUtils.instance.sign(value: json, privateKeyPem: self.privPem!)
     }
 }
