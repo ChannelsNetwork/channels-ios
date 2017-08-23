@@ -14,6 +14,20 @@ class ChannelService {
     private init() {
     }
     
-    func register(address: String, publicKey: String, inviteCode: String?) {
+    func register(address: String, publicKey: String, inviteCode: String?, callback: @escaping (RegisterResponse?, Error?) -> Void) {
+        let details = RegisterUserDetails(address: address, publicKey: publicKey, inviteCode: inviteCode, timestamp: now())
+        let request = RestRequest<RegisterUserDetails>(details: details, signature: "")
+        RestService.Post("", body: request) { (response: RegisterResponse?, err: Error?) in
+            if err != nil {
+                callback(nil, err)
+            } else {
+                callback(response, nil)
+            }
+        }
+    }
+    
+    private func now() -> Double {
+        let timeInterval = Date().timeIntervalSince1970
+        return Double(timeInterval * 1000)
     }
 }
