@@ -15,7 +15,7 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
     override func viewDidLoad() {
         segueOnAppear = nil
         var hasKey = IdentityManager.instance.ensureKey(autoGenerate: false)
-        if (hasKey) {
+        if (!hasKey) {
             hasKey = IdentityManager.instance.ensureKey(autoGenerate: true)
             if (!hasKey) {
                 print("Faild to create key. This should never happen")

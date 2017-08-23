@@ -9,6 +9,15 @@
 import Foundation
 import JavaScriptCore
 
+struct GeneratedKeys {
+    let privateKeyPem: String
+    let publicKey: String
+    let publicKeyPem: String
+    let ethPublic: String
+    let address: String
+    let ethAddress: String
+}
+
 class JSUtils {
     static let instance = JSUtils()
     
@@ -45,13 +54,18 @@ class JSUtils {
         return (self.jsUtils != nil)
     }
     
-    func generateAddress(_ privateKey: String) -> [String]? {
+    func generateAddress(_ privateKey: String) -> GeneratedKeys? {
         if self.initializeJs() {
             if let result = self.jsUtils?.invokeMethod("generateAddress", withArguments: [privateKey]) {
-                if let ret = result.toArray() {
-                    let keys: [String] = ["\(ret[0])", "\(ret[1])", "\(ret[2])"]
-                    return keys
-                }
+                let ret = GeneratedKeys(
+                    privateKeyPem: result.forProperty("privateKeyPem").toString(),
+                    publicKey: result.forProperty("publicKey").toString(),
+                    publicKeyPem: result.forProperty("publicKeyPem").toString(),
+                    ethPublic: result.forProperty("ethPublic").toString(),
+                    address: result.forProperty("address").toString(),
+                    ethAddress: result.forProperty("ethAddress").toString()
+                )
+                return ret
             }
         }
         return nil

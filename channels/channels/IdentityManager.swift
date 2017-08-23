@@ -8,53 +8,62 @@
 
 import Foundation
 
+
 class IdentityManager {
     static let instance = IdentityManager()
     
-    private let applicationTag = "hivepoint.channels"
-    private let tagPrivate: String
-    private let tagPublic: String
-    private let tagEthPublic: String
-    private let tagEthAddress: String
-    
-    private var privateKey: String?
-    private var publicKey: String?
-    private var ethPublicKey: String?
-    private var ethAddress: String?
+    private var priv: String?
+    private var privPem: String?
+    private var pub: String?
+    private var pubPem: String?
+    private var pubEth: String?
+    private var address: String?
+    private var addressEth: String?
     
     private var userIdentity: UserIdentity?
     
+    struct KeyTag {
+        static let priv = "channels.identity.private"
+        static let privPem = "channels.identity.private.pem"
+        static let pub = "channels.identity.public"
+        static let pubPem = "channels.identity.public.pem"
+        static let pubEth = "channels.identity.public.eth"
+        static let address = "channels.identity.address"
+        static let addressEth = "channels.identity.address.eth"
+    }
+    
     private init() {
-        self.tagPrivate = applicationTag + ".private"
-        self.tagPublic = applicationTag + ".public"
-        self.tagEthPublic = applicationTag + ".ethPublic"
-        self.tagEthAddress = applicationTag + ".ethAddress"
-        
+        self.priv = nil
         self.userIdentity = loadUserIdentity()
     }
     
     func ensureKey(autoGenerate: Bool) -> Bool {
-        if self.privateKey != nil && self.publicKey != nil && self.ethPublicKey != nil && self.ethAddress != nil {
+        if self.priv != nil {
             return true
         }
-        if let loadedPrivate = loadKeyWithTag(self.tagPrivate) {
-            if let loadedPublic = loadKeyWithTag(self.tagPublic) {
-                if let loadedEthPublic = loadKeyWithTag(self.tagEthPublic) {
-                    if let loadedEthAddress = loadKeyWithTag(self.tagEthAddress) {
-                        self.privateKey = loadedPrivate
-                        self.publicKey = loadedPublic
-                        self.ethPublicKey = loadedEthPublic
-                        self.ethAddress = loadedEthAddress
-                        return true
-                    }
+        
+        guard let priv = loadKeyWithTag(KeyTag.priv),
+              let privPem = loadKeyWithTag(KeyTag.privPem),
+              let pub = loadKeyWithTag(KeyTag.pub),
+              let pubPem = loadKeyWithTag(KeyTag.pubPem),
+              let pubEth = loadKeyWithTag(KeyTag.pubEth),
+              let address = loadKeyWithTag(KeyTag.address),
+              let addressEth = loadKeyWithTag(KeyTag.addressEth)
+            else {
+                if (autoGenerate) {
+                    return generateKeyPair()
                 }
-            }
+                return false
         }
-        self.userIdentity = nil
-        if (autoGenerate) {
-            return generateKeyPair()
-        }
-        return false
+        
+        self.priv = priv
+        self.privPem = privPem
+        self.pub = pub
+        self.pubPem = pubPem
+        self.pubEth = pubEth
+        self.address = address
+        self.addressEth = addressEth
+        return true
     }
     
     private func generateKeyPair() -> Bool {
@@ -75,19 +84,25 @@ class IdentityManager {
         }
         print("Public Keys and etherum address:\n\(keys)")
         
-        self.privateKey = keyString
-        self.publicKey = keys[0]
-        self.ethPublicKey = keys[1]
-        self.ethAddress = keys[2]
+        self.priv = keyString
+        self.privPem = keys.privateKeyPem
+        self.pub = keys.publicKey
+        self.pubPem = keys.publicKeyPem
+        self.pubEth = keys.ethPublic
+        self.address = keys.address
+        self.addressEth = keys.ethAddress
         
-        guard storeKeyWithTag(self.tagPrivate, value: keyString) &&
-              storeKeyWithTag(self.tagPublic, value: self.publicKey!) &&
-              storeKeyWithTag(self.tagEthPublic, value: self.ethPublicKey!) &&
-              storeKeyWithTag(self.tagEthAddress, value: self.ethAddress!) else {
-            print("Failed to store keys in chain")
-            return false
+        guard storeKeyWithTag(KeyTag.priv, value: self.priv!) &&
+              storeKeyWithTag(KeyTag.privPem, value: self.privPem!) &&
+              storeKeyWithTag(KeyTag.pub, value: self.pub!) &&
+              storeKeyWithTag(KeyTag.pubPem, value: self.pubPem!) &&
+              storeKeyWithTag(KeyTag.pubEth, value: self.pubEth!) &&
+              storeKeyWithTag(KeyTag.address, value: self.address!) &&
+              storeKeyWithTag(KeyTag.addressEth, value: self.addressEth!)
+            else {
+                print("Failed to store keys in chain")
+                return false
         }
-        
         return true
     }
     
