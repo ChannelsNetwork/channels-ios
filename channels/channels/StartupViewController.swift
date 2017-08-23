@@ -8,15 +8,36 @@
 
 import UIKit
 
-class StartupViewController: UIViewController {
+class StartupViewController: UIViewController, ShareCodeViewDelegate {
+    private var segueOnAppear: String?
+    var shareCode: String?
     
     override func viewDidLoad() {
-        let hasKey = IdentityManager.instance.ensureKey(autoGenerate: false)
-        print("Has key: \(hasKey)")
+        segueOnAppear = nil
+        var hasKey = IdentityManager.instance.ensureKey(autoGenerate: false)
+        if (hasKey) {
+            hasKey = IdentityManager.instance.ensureKey(autoGenerate: true)
+            if (!hasKey) {
+                print("Faild to create key. This should never happen")
+            } else {
+                segueOnAppear = "AskShareCode"
+            }
+        }
     }
     
-//    @IBAction func handleGo(_ sender: UIButton) {
-//        performSegue(withIdentifier: "Startup", sender: self)
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        if segueOnAppear != nil {
+            performSegue(withIdentifier: segueOnAppear!, sender: self)
+            segueOnAppear = nil
+        } else {
+            register()
+        }
+    }
+    
+    private func register() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ShowFeed", sender: self)
+        }
+    }
     
 }
