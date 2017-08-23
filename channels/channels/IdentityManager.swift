@@ -22,11 +22,15 @@ class IdentityManager {
     private var ethPublicKey: String?
     private var ethAddress: String?
     
+    private var userIdentity: UserIdentity?
+    
     private init() {
         self.tagPrivate = applicationTag + ".private"
         self.tagPublic = applicationTag + ".public"
         self.tagEthPublic = applicationTag + ".ethPublic"
         self.tagEthAddress = applicationTag + ".ethAddress"
+        
+        self.userIdentity = loadUserIdentity()
     }
     
     func ensureKey(autoGenerate: Bool) -> Bool {
@@ -46,6 +50,7 @@ class IdentityManager {
                 }
             }
         }
+        self.userIdentity = nil
         if (autoGenerate) {
             return generateKeyPair()
         }
@@ -117,5 +122,19 @@ class IdentityManager {
             return nil
         }
         return String(data: item as! Data, encoding: String.Encoding.utf8)
+    }
+    
+    private func loadUserIdentity() -> UserIdentity? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: UserIdentity.ArchiveUrl.path) as? UserIdentity
+    }
+    
+    private func saveUserIdentity(_ identity: UserIdentity) {
+        self.userIdentity = identity
+        let saved = NSKeyedArchiver.archiveRootObject(identity, toFile: UserIdentity.ArchiveUrl.path)
+        if saved {
+            print("User identity saved")
+        } else {
+            print("Failed to save user identity: \(saved)")
+        }
     }
 }
