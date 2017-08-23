@@ -14,6 +14,6 @@ class ChannelService {
     private init() {
     }
     
-    func register() {
+    func register(address: String, publicKey: String, inviteCode: String?) {
     }
 }

@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class RegisterResponse: Serializable {
+class RegisterResponse: Mappable {
     var status: AccountStatus?
     
-    required init?(json: [String : Any]) throws {
-        guard let statusJson = json["status"] as? [String: Any] else {
-            throw SerializationError.missing("status")
-        }
-        self.status = try AccountStatus(json: statusJson)
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        status  <- map["status"]
     }
 }

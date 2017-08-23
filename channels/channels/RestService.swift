@@ -7,46 +7,42 @@
 //
 
 import Foundation
+import ObjectMapper
 
 class RestService {
+    static func Get<T: Mappable>(_ url: String, completion: @escaping (T?, Error?) -> Void) {
+        fetch(url, method: "GET", body: nil, completion: completion)
+    }
     
-    static func Get<T: Serializable>(_ url: String, completion: @escaping (T?, Error?) -> Void) {
-        let endPoint = URL(string: url)
-        let task = URLSession.shared.dataTask(with: endPoint!) { (data: Data?, response: URLResponse?, er: Error?) in
-            if (er != nil) {
-                completion(nil, er)
+    static func Post<T: Mappable>(_ url: String, body: Mappable?, completion: @escaping (T?, Error?) -> Void) {
+        fetch(url, method: "POST", body: body, completion: completion)
+    }
+    
+    private static func fetch<T: Mappable>(_ url: String, method: String, body: Mappable?, completion: @escaping (T?, Error?) -> Void) {
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = method
+        if body != nil {
+            request.httpBody = body!.toJSONString()?.data(using: .utf8)
+        }
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, err: Error?) in
+            if (err != nil) {
+                completion(nil, err)
             } else {
                 if (data == nil) {
                     completion(nil, nil)
                 } else {
-                    let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-                    guard let jsonObj = json as? [String: Any] else {
-                        completion(nil, SerializationError.missing("root"))
+                    guard let jsonString = String.init(data: data!, encoding: .utf8) else {
+                        completion(nil, nil)
                         return
                     }
-                    do {
-                        let ret = try T.init(json: jsonObj)
-                        completion(ret, nil)
-                    } catch {
-                        completion(nil, error)
+                    guard let parsed = Mapper<T>().map(JSONString: jsonString) else {
+                        completion(nil, ChannelsError.message("Failed to deserialize response"))
+                        return
                     }
+                    completion(parsed, nil)
                 }
             }
         }
         task.resume()
     }
-    
-    private static func Fetch<T: Serializable>(_ url: String, method: String, body: Any?, completion: @escaping (T?, Error?) -> Void) {
-        var request = URLRequest(url: URL(string: url)!)
-        request.httpMethod = method
-        if body != nil {
-            JSONSerialization.strin
-        }
-        
-    }
-    
-//    var request = URLRequest(url: URL(string: "http://www.thisismylink.com/postName.php")!)
-//    request.httpMethod = "POST"
-//    let postString = "id=13&name=Jack"
-//    request.httpBody = postString.data(using: .utf8)
 }
