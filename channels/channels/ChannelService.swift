@@ -19,6 +19,12 @@ class ChannelService {
         restRoot = serverUrl + "/d"
     }
     
+    var accountStatus: AccountStatus? {
+        get {
+            return self.registration?.status
+        }
+    }
+    
     func register(inviteCode: String?, callback: @escaping (RegisterResponse?, Error?) -> Void) {
         if (self.registration != nil) {
             callback(self.registration, nil)
