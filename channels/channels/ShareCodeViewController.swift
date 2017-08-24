@@ -28,17 +28,4 @@ class  ShareCodeViewController: UIViewController {
         self.delegate?.shareCode = code
         self.dismiss(animated: false, completion: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            switch identifier {
-            case "EnableNotifications":
-                let ret = IdentityManager.instance.ensureKey(autoGenerate: false)
-                print("Key generation success: \(ret)")
-                break;
-            default:
-                break;
-            }
-        }
-    }
 }

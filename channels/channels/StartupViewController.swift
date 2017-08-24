@@ -18,7 +18,7 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
         if (!hasKey) {
             hasKey = IdentityManager.instance.ensureKey(autoGenerate: true)
             if (!hasKey) {
-                print("Faild to create key. This should never happen")
+                UIUtils.showError("Faild to create key. This should never happen")
             } else {
                 segueOnAppear = "AskShareCode"
             }
@@ -34,12 +34,25 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let sid = segue.identifier else {
+            return
+        }
+        switch (sid) {
+            case "AskShareCode":
+                if let scvc = segue.destination as? ShareCodeViewController {
+                    scvc.delegate = self
+                }
+            default:
+                break
+        }
+    }
+    
     private func register() {
         ChannelService.instance.register(inviteCode: shareCode) { (response: RegisterResponse?, err: Error?) in
             if err != nil {
-                print("Error registering with server: \(err!)")
+                UIUtils.showError("Error registering with server: \(err!.localizedDescription)")
             } else {
-                print("Response: \(response!)")
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "ShowFeed", sender: self)
                 }

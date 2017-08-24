@@ -12,6 +12,7 @@ class ChannelService {
     static let instance = ChannelService()
     
     private let restRoot: String
+    private var registration: RegisterResponse? = nil
     
     private init() {
         let serverUrl = Config.get(Config.kServerUrl) ?? "http://localhost:33111"
@@ -19,6 +20,10 @@ class ChannelService {
     }
     
     func register(inviteCode: String?, callback: @escaping (RegisterResponse?, Error?) -> Void) {
+        if (self.registration != nil) {
+            callback(self.registration, nil)
+            return
+        }
         let im  = IdentityManager.instance
         let details = RegisterUserDetails(address: im.userAddress, publicKey: im.publicKey, inviteCode: inviteCode, timestamp: now())
         guard let request = CoreUtils.restRequestFor(data: details) else {
@@ -30,6 +35,7 @@ class ChannelService {
             if err != nil {
                 callback(nil, err)
             } else {
+                self.registration = response
                 callback(response, nil)
             }
         }

@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 class AccountStatus: Mappable {
-    var goLive: Double = 0
+    var goLive: Int = 0
     var userBalance: Int = 0
     var networkBalance: Int = 0
     var invitationsUsed: Int = 0
