@@ -50,6 +50,17 @@ class LaunchViewController: UIViewController {
         timerRunning = true
     }
     
-    @IBAction func onInvite(_ sender: UIButton) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let sid = segue.identifier else {
+            return
+        }
+        switch (sid) {
+        case "InviteUser":
+            if let ivc = segue.destination as? InviteViewController {
+                ivc.shareCode = status?.inviteCode ?? "CHNLS"
+            }
+        default:
+            break
+        }
     }
 }

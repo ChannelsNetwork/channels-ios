@@ -27,6 +27,9 @@
 		0DA4F4701F4379700037ED69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4F46E1F4379700037ED69 /* LaunchScreen.storyboard */; };
 		0DA70A091F4F41F300F5E8E1 /* CoreUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA70A081F4F41F300F5E8E1 /* CoreUtils.swift */; };
 		0DA70A141F4F5CFD00F5E8E1 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA70A131F4F5CFD00F5E8E1 /* LaunchViewController.swift */; };
+		0DA70A161F4F68B500F5E8E1 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA70A151F4F68B500F5E8E1 /* InviteViewController.swift */; };
+		0DA70A181F4F6FBB00F5E8E1 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA70A171F4F6FBB00F5E8E1 /* BlogViewController.swift */; };
+		0DA70A1A1F4F764400F5E8E1 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA70A191F4F764400F5E8E1 /* BalanceViewController.swift */; };
 		0DE399D41F4BA74B0043805F /* UserIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE399D31F4BA74B0043805F /* UserIdentity.swift */; };
 		0DF878AD1F46091A0042DEA7 /* a1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF878AC1F46091A0042DEA7 /* a1.png */; };
 		0DF878B01F460AE90042DEA7 /* ShareCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF878AF1F460AE80042DEA7 /* ShareCodeViewController.swift */; };
@@ -129,6 +132,9 @@
 		0DA4F4711F4379700037ED69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DA70A081F4F41F300F5E8E1 /* CoreUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreUtils.swift; sourceTree = "<group>"; };
 		0DA70A131F4F5CFD00F5E8E1 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		0DA70A151F4F68B500F5E8E1 /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		0DA70A171F4F6FBB00F5E8E1 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
+		0DA70A191F4F764400F5E8E1 /* BalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
 		0DE399D31F4BA74B0043805F /* UserIdentity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIdentity.swift; sourceTree = "<group>"; };
 		0DF878AC1F46091A0042DEA7 /* a1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a1.png; sourceTree = "<group>"; };
 		0DF878AF1F460AE80042DEA7 /* ShareCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareCodeViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +232,9 @@
 			isa = PBXGroup;
 			children = (
 				0DA70A131F4F5CFD00F5E8E1 /* LaunchViewController.swift */,
+				0DA70A151F4F68B500F5E8E1 /* InviteViewController.swift */,
+				0DA70A171F4F6FBB00F5E8E1 /* BlogViewController.swift */,
+				0DA70A191F4F764400F5E8E1 /* BalanceViewController.swift */,
 			);
 			name = "Launch UI";
 			sourceTree = "<group>";
@@ -417,15 +426,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DA70A181F4F6FBB00F5E8E1 /* BlogViewController.swift in Sources */,
 				0D0BA9FA1F4E55A700234C3F /* UIUtils.swift in Sources */,
 				0DA70A141F4F5CFD00F5E8E1 /* LaunchViewController.swift in Sources */,
 				0D0BA9BE1F4D075500234C3F /* StartupViewController.swift in Sources */,
 				0D0BA9C61F4DF31C00234C3F /* ChannelService.swift in Sources */,
 				0D0BA9C81F4DF48D00234C3F /* RestService.swift in Sources */,
 				0DA70A091F4F41F300F5E8E1 /* CoreUtils.swift in Sources */,
+				0DA70A1A1F4F764400F5E8E1 /* BalanceViewController.swift in Sources */,
 				0D0BA9F81F4E40F500234C3F /* Config.swift in Sources */,
 				0DE399D41F4BA74B0043805F /* UserIdentity.swift in Sources */,
 				0D0BA9F21F4E197300234C3F /* ChannelsError.swift in Sources */,
+				0DA70A161F4F68B500F5E8E1 /* InviteViewController.swift in Sources */,
 				0D0BA9F41F4E1EFA00234C3F /* RestRequest.swift in Sources */,
 				0DF878B01F460AE90042DEA7 /* ShareCodeViewController.swift in Sources */,
 				0D0BA9CA1F4DFD7400234C3F /* AccountStatus.swift in Sources */,
