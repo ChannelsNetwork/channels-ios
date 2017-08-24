@@ -22,6 +22,7 @@ class RestService {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = method
         if body != nil {
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = body!.toJSONString()?.data(using: .utf8)
         }
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, err: Error?) in
@@ -36,7 +37,7 @@ class RestService {
                         return
                     }
                     guard let parsed = Mapper<T>().map(JSONString: jsonString) else {
-                        completion(nil, ChannelsError.message("Failed to deserialize response"))
+                        completion(nil, ChannelsError.message("Failed to deserialize response: \(jsonString)"))
                         return
                     }
                     completion(parsed, nil)

@@ -11,17 +11,23 @@ import Foundation
 class ChannelService {
     static let instance = ChannelService()
     
+    private let restRoot: String
+    
     private init() {
+        let serverUrl = Config.get(Config.kServerUrl) ?? "http://localhost:33111"
+        restRoot = serverUrl + "/d"
     }
     
-    func register(address: String, publicKey: String, inviteCode: String?, callback: @escaping (RegisterResponse?, Error?) -> Void) {
-        let details = RegisterUserDetails(address: address, publicKey: publicKey, inviteCode: inviteCode, timestamp: now())
-        guard let signature = IdentityManager.instance.sign(details) else {
+    func register(inviteCode: String?, callback: @escaping (RegisterResponse?, Error?) -> Void) {
+        let im  = IdentityManager.instance
+        let details = RegisterUserDetails(address: im.userAddress, publicKey: im.publicKey, inviteCode: inviteCode, timestamp: now())
+        guard let signature = im.sign(details) else {
             callback(nil, ChannelsError.message("Failed to sign details"))
             return
         }
         let request = RestRequest<RegisterUserDetails>(details: details, signature: signature)
-        RestService.Post("", body: request) { (response: RegisterResponse?, err: Error?) in
+        let url = restRoot + "/register-user"
+        RestService.Post(url, body: request) { (response: RegisterResponse?, err: Error?) in
             if err != nil {
                 callback(nil, err)
             } else {
@@ -30,8 +36,8 @@ class ChannelService {
         }
     }
     
-    private func now() -> Double {
+    private func now() -> Int {
         let timeInterval = Date().timeIntervalSince1970
-        return Double(timeInterval * 1000)
+        return Int(timeInterval * 1000)
     }
 }

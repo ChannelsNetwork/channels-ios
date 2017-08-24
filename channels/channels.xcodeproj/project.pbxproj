@@ -16,6 +16,8 @@
 		0D0BA9ED1F4E13CA00234C3F /* ObjectMapper.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0BA9DD1F4E12B000234C3F /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0D0BA9F21F4E197300234C3F /* ChannelsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA9F11F4E197300234C3F /* ChannelsError.swift */; };
 		0D0BA9F41F4E1EFA00234C3F /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA9F31F4E1EFA00234C3F /* RestRequest.swift */; };
+		0D0BA9F61F4E3FA700234C3F /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D0BA9F51F4E3FA700234C3F /* config.plist */; };
+		0D0BA9F81F4E40F500234C3F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA9F71F4E40F500234C3F /* Config.swift */; };
 		0D1A3CAD1F47958E00B642A4 /* JSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A3CAC1F47958E00B642A4 /* JSUtils.swift */; };
 		0D1A3CB11F47967800B642A4 /* channels-ios-jsutils.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D1A3CB01F47967800B642A4 /* channels-ios-jsutils.js */; };
 		0DA4F4661F4379700037ED69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA4F4651F4379700037ED69 /* AppDelegate.swift */; };
@@ -111,6 +113,8 @@
 		0D0BA9D21F4E12B000234C3F /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ../ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
 		0D0BA9F11F4E197300234C3F /* ChannelsError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsError.swift; sourceTree = "<group>"; };
 		0D0BA9F31F4E1EFA00234C3F /* RestRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRequest.swift; sourceTree = "<group>"; };
+		0D0BA9F51F4E3FA700234C3F /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = channels/config.plist; sourceTree = "<group>"; };
+		0D0BA9F71F4E40F500234C3F /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		0D1A3CAC1F47958E00B642A4 /* JSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSUtils.swift; sourceTree = "<group>"; };
 		0D1A3CB01F47967800B642A4 /* channels-ios-jsutils.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "channels-ios-jsutils.js"; sourceTree = "<group>"; };
 		0DA4F4621F4379700037ED69 /* channels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = channels.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +239,7 @@
 			children = (
 				0D1A3CAF1F47967800B642A4 /* Scripts */,
 				0DF878AB1F46091A0042DEA7 /* Images */,
+				0D0BA9F51F4E3FA700234C3F /* config.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				0D1A3CAC1F47958E00B642A4 /* JSUtils.swift */,
 				0D0BA9C51F4DF31C00234C3F /* ChannelService.swift */,
 				0D0BA9C71F4DF48D00234C3F /* RestService.swift */,
+				0D0BA9F71F4E40F500234C3F /* Config.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 			files = (
 				0DA4F4701F4379700037ED69 /* LaunchScreen.storyboard in Resources */,
 				0DA4F46D1F4379700037ED69 /* Assets.xcassets in Resources */,
+				0D0BA9F61F4E3FA700234C3F /* config.plist in Resources */,
 				0D1A3CB11F47967800B642A4 /* channels-ios-jsutils.js in Resources */,
 				0DA4F46B1F4379700037ED69 /* Main.storyboard in Resources */,
 				0DF878AD1F46091A0042DEA7 /* a1.png in Resources */,
@@ -396,6 +403,7 @@
 				0D0BA9BE1F4D075500234C3F /* StartupViewController.swift in Sources */,
 				0D0BA9C61F4DF31C00234C3F /* ChannelService.swift in Sources */,
 				0D0BA9C81F4DF48D00234C3F /* RestService.swift in Sources */,
+				0D0BA9F81F4E40F500234C3F /* Config.swift in Sources */,
 				0DE399D41F4BA74B0043805F /* UserIdentity.swift in Sources */,
 				0D0BA9F21F4E197300234C3F /* ChannelsError.swift in Sources */,
 				0D0BA9F41F4E1EFA00234C3F /* RestRequest.swift in Sources */,

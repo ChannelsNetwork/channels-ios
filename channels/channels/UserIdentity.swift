@@ -12,7 +12,7 @@ class UserIdentity: NSObject, NSCoding {
     var address: String
     var name: String
     var handle: String
-    var timestamp: Double
+    var timestamp: Int
     
     static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveUrl = DocumentsDirectory.appendingPathComponent("user-identity")
@@ -24,7 +24,7 @@ class UserIdentity: NSObject, NSCoding {
         static let timestamp = "timestamp"
     }
     
-    init(name: String, address: String, handle: String, timestamp: Double?) {
+    init(name: String, address: String, handle: String, timestamp: Int?) {
         self.name = name
         self.address = address
         self.handle = handle
@@ -32,7 +32,7 @@ class UserIdentity: NSObject, NSCoding {
             self.timestamp = timestamp!
         } else {
             let timeInterval = Date().timeIntervalSince1970
-            self.timestamp = Double(timeInterval * 1000)
+            self.timestamp = Int(timeInterval * 1000)
         }
     }
     
@@ -46,7 +46,7 @@ class UserIdentity: NSObject, NSCoding {
         guard let handle = aDecoder.decodeObject(forKey: PropertyKey.handle) as? String else {
             return nil
         }
-        guard let timestamp = aDecoder.decodeObject(forKey: PropertyKey.timestamp) as? Double else {
+        guard let timestamp = aDecoder.decodeObject(forKey: PropertyKey.timestamp) as? Int else {
             return nil
         }
         self.init(name: name, address: address, handle: handle, timestamp: timestamp)

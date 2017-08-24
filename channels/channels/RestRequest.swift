@@ -32,9 +32,9 @@ class RestRequest<T: Mappable>: Mappable {
 
 class Signable: Mappable {
     var address: String?
-    var timestamp: Double?
+    var timestamp: Int?
     
-    init(address: String, timestamp: Double) {
+    init(address: String, timestamp: Int) {
         self.address = address
         self.timestamp = timestamp
     }
@@ -52,7 +52,7 @@ class RegisterUserDetails: Signable {
     var publicKey: String?
     var inviteCode: String?
     
-    init(address: String, publicKey: String, inviteCode: String?, timestamp: Double) {
+    init(address: String, publicKey: String, inviteCode: String?, timestamp: Int) {
         super.init(address: address, timestamp: timestamp)
         self.publicKey = publicKey
         self.inviteCode = inviteCode
@@ -64,7 +64,7 @@ class RegisterUserDetails: Signable {
     
     override func mapping(map: Map) {
         super.mapping(map: map)
-        address     <- map["address"]
-        timestamp   <- map["timestamp"]
+        publicKey     <- map["publicKey"]
+        inviteCode   <- map["inviteCode"]
     }
 }

@@ -38,6 +38,18 @@ class IdentityManager {
         self.userIdentity = loadUserIdentity()
     }
     
+    var userAddress: String {
+        get {
+            return self.address ?? ""
+        }
+    }
+    
+    var publicKey: String {
+        get {
+            return self.pubPem ?? ""
+        }
+    }
+    
     func ensureKey(autoGenerate: Bool) -> Bool {
         if self.priv != nil {
             return true

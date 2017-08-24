@@ -10,7 +10,7 @@ import UIKit
 
 class StartupViewController: UIViewController, ShareCodeViewDelegate {
     private var segueOnAppear: String?
-    var shareCode: String?
+    var shareCode: String? = nil
     
     override func viewDidLoad() {
         segueOnAppear = nil
@@ -35,8 +35,15 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
     }
     
     private func register() {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "ShowFeed", sender: self)
+        ChannelService.instance.register(inviteCode: shareCode) { (response: RegisterResponse?, err: Error?) in
+            if err != nil {
+                print("Error registering with server: \(err!)")
+            } else {
+                print("Response: \(response!)")
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "ShowFeed", sender: self)
+                }
+            }
         }
     }
     
