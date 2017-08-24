@@ -9,12 +9,12 @@
 import Foundation
 import ObjectMapper
 
-class RestRequest<T: Mappable>: Mappable {
+class RestRequest: Mappable {
     var version: Int = 1
-    var details: T?
+    var details: String?
     var signature: String?
     
-    init(details: T, signature: String) {
+    init(details: String, signature: String) {
         self.details = details
         self.signature = signature
         self.version = 1

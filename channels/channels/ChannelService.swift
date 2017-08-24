@@ -21,11 +21,10 @@ class ChannelService {
     func register(inviteCode: String?, callback: @escaping (RegisterResponse?, Error?) -> Void) {
         let im  = IdentityManager.instance
         let details = RegisterUserDetails(address: im.userAddress, publicKey: im.publicKey, inviteCode: inviteCode, timestamp: now())
-        guard let signature = im.sign(details) else {
-            callback(nil, ChannelsError.message("Failed to sign details"))
+        guard let request = CoreUtils.restRequestFor(data: details) else {
+            callback(nil, ChannelsError.message("Failed to sign and create request"))
             return
         }
-        let request = RestRequest<RegisterUserDetails>(details: details, signature: signature)
         let url = restRoot + "/register-user"
         RestService.Post(url, body: request) { (response: RegisterResponse?, err: Error?) in
             if err != nil {

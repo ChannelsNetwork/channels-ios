@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import ObjectMapper
-
 
 class IdentityManager {
     static let instance = IdentityManager()
@@ -166,10 +164,7 @@ class IdentityManager {
         }
     }
     
-    func sign(_ obj: Mappable) -> String? {
-        guard let json = obj.toJSONString() else {
-            return nil
-        }
-        return JSUtils.instance.sign(value: json, privateKeyPem: self.privPem!)
+    func sign(_ data: String) -> String? {
+        return JSUtils.instance.sign(value: data, privateKeyPem: self.privPem!)
     }
 }
