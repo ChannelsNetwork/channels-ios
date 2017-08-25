@@ -7,55 +7,35 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class UserIdentity: NSObject, NSCoding {
-    var address: String
-    var name: String
-    var handle: String
-    var timestamp: Int
+class UserIdentity: Mappable {
+    var name: String?
+    var address: String?
+    var handle: String?
+    var location: String?
+    var timestamp: Int = 0
     
-    static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveUrl = DocumentsDirectory.appendingPathComponent("user-identity")
-    
-    struct PropertyKey {
-        static let name = "name"
-        static let address = "address"
-        static let handle = "handle"
-        static let timestamp = "timestamp"
+    required init?(map: Map) {
     }
     
-    init(name: String, address: String, handle: String, timestamp: Int?) {
-        self.name = name
+    init(address: String, name: String, handle: String, location: String?, timestamp: Int = 0) {
+        self.name = name;
         self.address = address
         self.handle = handle
-        if timestamp != nil {
-            self.timestamp = timestamp!
+        self.location = location
+        if timestamp > 0 {
+            self.timestamp = timestamp
         } else {
-            let timeInterval = Date().timeIntervalSince1970
-            self.timestamp = Int(timeInterval * 1000)
+            self.timestamp = Int((Date().timeIntervalSince1970) * 1000)
         }
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
-        guard let name = aDecoder.decodeObject(forKey: PropertyKey.name) as? String else {
-            return nil
-        }
-        guard let address = aDecoder.decodeObject(forKey: PropertyKey.address) as? String else {
-            return nil
-        }
-        guard let handle = aDecoder.decodeObject(forKey: PropertyKey.handle) as? String else {
-            return nil
-        }
-        guard let timestamp = aDecoder.decodeObject(forKey: PropertyKey.timestamp) as? Int else {
-            return nil
-        }
-        self.init(name: name, address: address, handle: handle, timestamp: timestamp)
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(name, forKey: PropertyKey.name)
-        aCoder.encode(address, forKey: PropertyKey.address)
-        aCoder.encode(handle, forKey: PropertyKey.handle)
-        aCoder.encode(timestamp, forKey: PropertyKey.timestamp)
+    func mapping(map: Map) {
+        name <- map["name"]
+        address <- map["address"]
+        handle <- map["handle"]
+        location <- map["location"]
+        timestamp <- map["timestamp"]
     }
 }

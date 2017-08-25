@@ -70,6 +70,9 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
         }
     }
     
+    private func checkUser() {
+    }
+    
     private func gotoMain() {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ShowFeed", sender: self)

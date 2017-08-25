@@ -39,7 +39,28 @@ class LaunchViewController: UIViewController {
         let hours = Int(diff) / 3600 % 24
         let minutes = Int(diff) / 60 % 60
         let seconds = Int(diff) % 60
-        let display = String(format:"%02i days\n%02i hours\n%02i minutes\n%02i seconds", days, hours, minutes, seconds)
+        var display = "";
+        if days == 1 {
+           display += "1 day\n"
+        } else if days > 1 {
+            display += "\(days) days\n"
+        }
+        if hours == 1 {
+            display += "1 hour\n"
+        } else if hours > 1 {
+            display += "\(hours) hours\n"
+        }
+        if minutes == 1 {
+            display += "1 minute\n"
+        } else {
+            display += "\(minutes) minutes\n"
+        }
+        if seconds == 1 {
+            display += "1 second"
+        } else {
+            display += "\(seconds) seconds"
+        }
+//        let display = "\(hours)" //String(format:"%02i days\n%02i hours\n%02i minutes\n%02i seconds", days, hours, minutes, seconds)
         countdown.text = display
     }
     

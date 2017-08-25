@@ -151,17 +151,20 @@ class IdentityManager {
     }
     
     private func loadUserIdentity() -> UserIdentity? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: UserIdentity.ArchiveUrl.path) as? UserIdentity
+        let defaults = UserDefaults.standard
+        if let uid = defaults.object(forKey: "user-identity") as? UserIdentity {
+            if let add = uid.address {
+                if add.characters.count > 0 {
+                    return uid
+                }
+            }
+        }
+        return nil
     }
     
     private func saveUserIdentity(_ identity: UserIdentity) {
         self.userIdentity = identity
-        let saved = NSKeyedArchiver.archiveRootObject(identity, toFile: UserIdentity.ArchiveUrl.path)
-        if saved {
-            print("User identity saved")
-        } else {
-            print("Failed to save user identity: \(saved)")
-        }
+        UserDefaults.standard.set(identity, forKey: "user-identity")
     }
     
     func sign(_ data: String) -> String? {

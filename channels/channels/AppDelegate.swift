@@ -17,13 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Initialize OneSignal
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+        let onNotificationOpened: OSHandleNotificationActionBlock = { result in
+            guard let payload = result?.notification.payload else {
+                return
+            }
+            let fullMessage = payload.body!
+            print("Message: \(fullMessage)")
+        }
         OneSignal.initWithLaunchOptions(launchOptions,
                                         appId: "98b8d788-faff-4a91-a45c-f3fba0aef7c3",
-                                        handleNotificationAction: nil,
+                                        handleNotificationAction: onNotificationOpened,
                                         settings: onesignalInitSettings)
         
-        // check if first time launch
+        // Check if first time launch
         let defaults = UserDefaults.standard
         let launchedBefore = defaults.bool(forKey: "application-launched-before")
         firstTime = !launchedBefore
