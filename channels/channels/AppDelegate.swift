@@ -7,15 +7,30 @@
 //
 
 import UIKit
+import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var firstTime: Bool = false
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: "98b8d788-faff-4a91-a45c-f3fba0aef7c3",
+                                        handleNotificationAction: nil,
+                                        settings: onesignalInitSettings)
+        
+        // check if first time launch
+        let defaults = UserDefaults.standard
+        let launchedBefore = defaults.bool(forKey: "application-launched-before")
+        firstTime = !launchedBefore
+        if firstTime {
+            defaults.set(true, forKey: "application-launched-before")
+        }
+        
         return true
     }
 

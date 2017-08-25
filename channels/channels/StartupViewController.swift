@@ -10,6 +10,7 @@ import UIKit
 
 class StartupViewController: UIViewController, ShareCodeViewDelegate {
     private var segueOnAppear: String?
+    private var registered: Bool = false
     var shareCode: String? = nil
     
     override func viewDidLoad() {
@@ -29,8 +30,10 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
         if segueOnAppear != nil {
             performSegue(withIdentifier: segueOnAppear!, sender: self)
             segueOnAppear = nil
-        } else {
+        } else if !registered {
             register()
+        } else {
+            gotoMain()
         }
     }
     
@@ -53,10 +56,23 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
             if err != nil {
                 UIUtils.showError("Error registering with server: \(err!.localizedDescription)")
             } else {
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "ShowFeed", sender: self)
+                self.registered = true
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let firstTime = appDelegate.firstTime
+                if firstTime  {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "EnableNotifications", sender: self)
+                    }
+                } else {
+                    self.gotoMain()
                 }
             }
+        }
+    }
+    
+    private func gotoMain() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ShowFeed", sender: self)
         }
     }
     
