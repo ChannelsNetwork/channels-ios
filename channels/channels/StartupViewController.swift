@@ -33,7 +33,7 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
         } else if !registered {
             register()
         } else {
-            gotoMain()
+            checkUser()
         }
     }
     
@@ -45,6 +45,10 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
             case "AskShareCode":
                 if let scvc = segue.destination as? ShareCodeViewController {
                     scvc.delegate = self
+                }
+            case "ConfigureUser":
+                if let viewController = segue.destination as? EditUserViewController {
+                    viewController.newUser = true
                 }
             default:
                 break
@@ -64,13 +68,22 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
                         self.performSegue(withIdentifier: "EnableNotifications", sender: self)
                     }
                 } else {
-                    self.gotoMain()
+                    self.checkUser()
                 }
             }
         }
     }
     
     private func checkUser() {
+        if let address = IdentityManager.instance.userIdentity?.address {
+            if address.characters.count > 0 {
+                self.gotoMain()
+                return
+            }
+        }
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ConfigureUser", sender: self)
+        }
     }
     
     private func gotoMain() {

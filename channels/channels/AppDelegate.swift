@@ -18,18 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Initialize OneSignal
-        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
-        let onNotificationOpened: OSHandleNotificationActionBlock = { result in
-            guard let payload = result?.notification.payload else {
-                return
+        if !_Platform.isSumulator {
+            let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+            let onNotificationOpened: OSHandleNotificationActionBlock = { result in
+                guard let payload = result?.notification.payload else {
+                    return
+                }
+                let fullMessage = payload.body!
+                print("Message: \(fullMessage)")
             }
-            let fullMessage = payload.body!
-            print("Message: \(fullMessage)")
+            OneSignal.initWithLaunchOptions(launchOptions,
+                                            appId: "98b8d788-faff-4a91-a45c-f3fba0aef7c3",
+                                            handleNotificationAction: onNotificationOpened,
+                                            settings: onesignalInitSettings)
         }
-        OneSignal.initWithLaunchOptions(launchOptions,
-                                        appId: "98b8d788-faff-4a91-a45c-f3fba0aef7c3",
-                                        handleNotificationAction: onNotificationOpened,
-                                        settings: onesignalInitSettings)
         
         // Check if first time launch
         let defaults = UserDefaults.standard
@@ -65,5 +67,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+struct _Platform {
+    static var isSumulator: Bool {
+        get {
+            var isSim = false
+            #if arch(i386) || arch(x86_64)
+                isSim = true
+            #endif
+            return isSim
+        }
+    }
 }
 

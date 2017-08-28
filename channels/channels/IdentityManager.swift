@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 class IdentityManager {
     static let instance = IdentityManager()
@@ -19,7 +20,7 @@ class IdentityManager {
     private var address: String?
     private var addressEth: String?
     
-    private var userIdentity: UserIdentity?
+    public private(set) var userIdentity: UserIdentity?
     
     struct KeyTag {
         static let priv = "channels.identity.private"
@@ -152,19 +153,20 @@ class IdentityManager {
     
     private func loadUserIdentity() -> UserIdentity? {
         let defaults = UserDefaults.standard
-        if let uid = defaults.object(forKey: "user-identity") as? UserIdentity {
-            if let add = uid.address {
-                if add.characters.count > 0 {
-                    return uid
-                }
+        if let json = defaults.object(forKey: "user-identity") as? String {
+            if let uid = Mapper<UserIdentity>().map(JSONString: json) {
+                return uid
             }
         }
         return nil
     }
     
-    private func saveUserIdentity(_ identity: UserIdentity) {
+    func saveUserIdentity(_ identity: UserIdentity) {
         self.userIdentity = identity
-        UserDefaults.standard.set(identity, forKey: "user-identity")
+        guard let json = identity.toJSONString() else {
+            return
+        }
+        UserDefaults.standard.set(json, forKey: "user-identity")
     }
     
     func sign(_ data: String) -> String? {

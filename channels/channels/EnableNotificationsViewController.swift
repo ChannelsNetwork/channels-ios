@@ -16,9 +16,13 @@ class EnableNotificationsViewController: UIViewController {
     }
     
     @IBAction func onEnable(_ sender: UIButton) {
-        OneSignal.promptForPushNotifications(userResponse: { accepted in
-            print("User accepted notifications: \(accepted)")
+        if !_Platform.isSumulator {
+            OneSignal.promptForPushNotifications(userResponse: { accepted in
+                print("User accepted notifications: \(accepted)")
+                self.dismiss(animated: false, completion: nil)
+            })
+        } else {
             self.dismiss(animated: false, completion: nil)
-        })
+        }
     }
 }
