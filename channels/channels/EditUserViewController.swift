@@ -45,7 +45,11 @@ class EditUserViewController: UIViewController {
             UIUtils.showAlert(titled: "Invalid entry", withMessage: "Name and Handle fields cannot be empty.")
         } else {
             let newIdentity = UserIdentity(address: IdentityManager.instance.userAddress, name: newName, handle: newHandle, location: newLoaction)
-            IdentityManager.instance.saveUserIdentity(newIdentity)
+            IdentityManager.instance.saveUserIdentity(newIdentity, callback: { (err: Error?) in
+                if let error = err {
+                    UIUtils.showError("Failed to update user profile on the server: \(error.localizedDescription)")
+                }
+            })
             self.dismiss(animated: true, completion: nil)
         }
     }

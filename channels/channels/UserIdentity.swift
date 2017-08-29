@@ -14,21 +14,15 @@ class UserIdentity: Mappable {
     var address: String?
     var handle: String?
     var location: String?
-    var timestamp: Int = 0
     
     required init?(map: Map) {
     }
     
-    init(address: String, name: String, handle: String, location: String?, timestamp: Int = 0) {
+    init(address: String, name: String, handle: String, location: String?) {
         self.name = name;
         self.address = address
         self.handle = handle
         self.location = location
-        if timestamp > 0 {
-            self.timestamp = timestamp
-        } else {
-            self.timestamp = Int((Date().timeIntervalSince1970) * 1000)
-        }
     }
     
     func mapping(map: Map) {
@@ -36,6 +30,5 @@ class UserIdentity: Mappable {
         address <- map["address"]
         handle <- map["handle"]
         location <- map["location"]
-        timestamp <- map["timestamp"]
     }
 }

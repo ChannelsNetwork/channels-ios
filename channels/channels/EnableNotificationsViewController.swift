@@ -19,6 +19,15 @@ class EnableNotificationsViewController: UIViewController {
         if !_Platform.isSumulator {
             OneSignal.promptForPushNotifications(userResponse: { accepted in
                 print("User accepted notifications: \(accepted)")
+                if let status = OneSignal.getPermissionSubscriptionState() {
+                    if let token = status.subscriptionStatus.pushToken {
+                        ChannelService.instance.registerDevice(token: token, callback: { (err: Error?) in
+                            if let error = err {
+                                UIUtils.showError("Failed to register device: \(error.localizedDescription)")
+                            }
+                        })
+                    }
+                }
                 self.dismiss(animated: false, completion: nil)
             })
         } else {

@@ -12,7 +12,6 @@
 		0D0BA9C61F4DF31C00234C3F /* ChannelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA9C51F4DF31C00234C3F /* ChannelService.swift */; };
 		0D0BA9C81F4DF48D00234C3F /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA9C71F4DF48D00234C3F /* RestService.swift */; };
 		0D0BA9CA1F4DFD7400234C3F /* AccountStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA9C91F4DFD7400234C3F /* AccountStatus.swift */; };
-		0D0BA9CF1F4E034600234C3F /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA9CE1F4E034600234C3F /* RegisterResponse.swift */; };
 		0D0BA9ED1F4E13CA00234C3F /* ObjectMapper.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0BA9DD1F4E12B000234C3F /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0D0BA9F21F4E197300234C3F /* ChannelsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA9F11F4E197300234C3F /* ChannelsError.swift */; };
 		0D0BA9F41F4E1EFA00234C3F /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA9F31F4E1EFA00234C3F /* RestRequest.swift */; };
@@ -35,6 +34,7 @@
 		0DA70A221F4F8E0A00F5E8E1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA70A211F4F8E0A00F5E8E1 /* NotificationService.swift */; };
 		0DA70A261F4F8E0A00F5E8E1 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0DA70A1F1F4F8E0A00F5E8E1 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0DE399D41F4BA74B0043805F /* UserIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE399D31F4BA74B0043805F /* UserIdentity.swift */; };
+		0DE5426A1F54E31F0040D1A8 /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE542691F54E31F0040D1A8 /* RestResponse.swift */; };
 		0DF878AD1F46091A0042DEA7 /* a1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF878AC1F46091A0042DEA7 /* a1.png */; };
 		0DF878B01F460AE90042DEA7 /* ShareCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF878AF1F460AE80042DEA7 /* ShareCodeViewController.swift */; };
 		0DF878B71F4646980042DEA7 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF878B61F4646980042DEA7 /* IdentityManager.swift */; };
@@ -139,7 +139,6 @@
 		0D0BA9C51F4DF31C00234C3F /* ChannelService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelService.swift; sourceTree = "<group>"; };
 		0D0BA9C71F4DF48D00234C3F /* RestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
 		0D0BA9C91F4DFD7400234C3F /* AccountStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountStatus.swift; sourceTree = "<group>"; };
-		0D0BA9CE1F4E034600234C3F /* RegisterResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		0D0BA9D21F4E12B000234C3F /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ../ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
 		0D0BA9F11F4E197300234C3F /* ChannelsError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsError.swift; sourceTree = "<group>"; };
 		0D0BA9F31F4E1EFA00234C3F /* RestRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRequest.swift; sourceTree = "<group>"; };
@@ -166,6 +165,7 @@
 		0DA70A231F4F8E0A00F5E8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DA70A321F4F9BA700F5E8E1 /* channels.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = channels.entitlements; sourceTree = "<group>"; };
 		0DE399D31F4BA74B0043805F /* UserIdentity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIdentity.swift; sourceTree = "<group>"; };
+		0DE542691F54E31F0040D1A8 /* RestResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
 		0DF878AC1F46091A0042DEA7 /* a1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a1.png; sourceTree = "<group>"; };
 		0DF878AF1F460AE80042DEA7 /* ShareCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareCodeViewController.swift; sourceTree = "<group>"; };
 		0DF878B61F4646980042DEA7 /* IdentityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityManager.swift; sourceTree = "<group>"; };
@@ -210,8 +210,8 @@
 		0D0BA9CD1F4E032800234C3F /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				0D0BA9CE1F4E034600234C3F /* RegisterResponse.swift */,
 				0D0BA9F31F4E1EFA00234C3F /* RestRequest.swift */,
+				0DE542691F54E31F0040D1A8 /* RestResponse.swift */,
 			);
 			name = Rest;
 			sourceTree = "<group>";
@@ -641,6 +641,7 @@
 				0D0BA9FA1F4E55A700234C3F /* UIUtils.swift in Sources */,
 				0DA70A141F4F5CFD00F5E8E1 /* LaunchViewController.swift in Sources */,
 				0D0BA9BE1F4D075500234C3F /* StartupViewController.swift in Sources */,
+				0DE5426A1F54E31F0040D1A8 /* RestResponse.swift in Sources */,
 				0D0BA9C61F4DF31C00234C3F /* ChannelService.swift in Sources */,
 				0D0BA9C81F4DF48D00234C3F /* RestService.swift in Sources */,
 				0DA70A091F4F41F300F5E8E1 /* CoreUtils.swift in Sources */,
@@ -656,7 +657,6 @@
 				0D0BA9CA1F4DFD7400234C3F /* AccountStatus.swift in Sources */,
 				0DA4F4661F4379700037ED69 /* AppDelegate.swift in Sources */,
 				0D1A3CAD1F47958E00B642A4 /* JSUtils.swift in Sources */,
-				0D0BA9CF1F4E034600234C3F /* RegisterResponse.swift in Sources */,
 				0D0BA9C21F4D222000234C3F /* UserIdentityViewController.swift in Sources */,
 				0DF878B71F4646980042DEA7 /* IdentityManager.swift in Sources */,
 			);

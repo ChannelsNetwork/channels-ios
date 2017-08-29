@@ -68,3 +68,47 @@ class RegisterUserDetails: Signable {
         inviteCode   <- map["inviteCode"]
     }
 }
+
+class RegisterDeviceDetails: Signable {
+    var deviceToken: String?
+    
+    init(address: String, token: String, timestamp: Int) {
+        super.init(address: address, timestamp: timestamp)
+        self.deviceToken = token
+    }
+    
+    required init?(map: Map) {
+        super.init(map: map)
+    }
+    
+    override func mapping(map: Map) {
+        super.mapping(map: map)
+        deviceToken     <- map["deviceToken"]
+    }
+}
+
+class UpdateIdentityDetails: Signable {
+    var name: String?
+    var handle: String?
+    var location: String?
+    var imageUrl: String?
+    
+    init(address: String, name: String, handle: String, location: String?, timestamp: Int) {
+        super.init(address: address, timestamp: timestamp)
+        self.name = name
+        self.handle = handle
+        self.location = location
+    }
+    
+    required init?(map: Map) {
+        super.init(map: map)
+    }
+    
+    override func mapping(map: Map) {
+        super.mapping(map: map)
+        name     <- map["name"]
+        handle   <- map["handle"]
+        location   <- map["location"]
+        imageUrl   <- map["imageUrl"]
+    }
+}

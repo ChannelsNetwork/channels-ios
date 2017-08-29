@@ -161,12 +161,13 @@ class IdentityManager {
         return nil
     }
     
-    func saveUserIdentity(_ identity: UserIdentity) {
+    func saveUserIdentity(_ identity: UserIdentity, callback: @escaping (Error?) -> Void) {
         self.userIdentity = identity
         guard let json = identity.toJSONString() else {
             return
         }
         UserDefaults.standard.set(json, forKey: "user-identity")
+        ChannelService.instance.updateIdentity(identity, callback: callback)
     }
     
     func sign(_ data: String) -> String? {

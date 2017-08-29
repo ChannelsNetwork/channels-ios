@@ -25,6 +25,11 @@ class ChannelService {
         }
     }
     
+    private func now() -> Int {
+        let timeInterval = Date().timeIntervalSince1970
+        return Int(timeInterval * 1000)
+    }
+    
     func register(inviteCode: String?, callback: @escaping (RegisterResponse?, Error?) -> Void) {
         if (self.registration != nil) {
             callback(self.registration, nil)
@@ -47,8 +52,27 @@ class ChannelService {
         }
     }
     
-    private func now() -> Int {
-        let timeInterval = Date().timeIntervalSince1970
-        return Int(timeInterval * 1000)
+    func registerDevice(token: String, callback: @escaping (Error?) -> Void) {
+        let details = RegisterDeviceDetails(address: IdentityManager.instance.userAddress, token: token, timestamp: now())
+        guard let request = CoreUtils.restRequestFor(data: details) else {
+            callback(ChannelsError.message("Failed to sign and create request"))
+            return
+        }
+        let url = restRoot + "/register-ios-device"
+        RestService.Post(url, body: request) { (_: NullResponse?, err: Error?) in
+            callback(err)
+        }
+    }
+    
+    func updateIdentity(_ identity: UserIdentity, callback: @escaping (Error?) -> Void) {
+        let details = UpdateIdentityDetails(address: identity.address!, name: identity.name!, handle: identity.handle!, location: identity.location, timestamp: now())
+        guard let request = CoreUtils.restRequestFor(data: details) else {
+            callback(ChannelsError.message("Failed to sign and create request"))
+            return
+        }
+        let url = restRoot + "/update-identity"
+        RestService.Post(url, body: request) { (_: NullResponse?, err: Error?) in
+            callback(err)
+        }
     }
 }
