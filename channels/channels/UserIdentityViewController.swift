@@ -12,17 +12,32 @@ class UserIdentityViewController: UIViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var handle: UILabel!
     @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var noProfileView: UIView!
+    
+    private var shouldEdit = true
     
     override func viewWillAppear(_ animated: Bool) {
         if let uid = IdentityManager.instance.userIdentity {
-            name.text = uid.name ?? "Your name"
-            handle.text = uid.handle ?? "Your handle"
-            location.text = uid.location ?? "Your location"
+            name.text = uid.name ?? ""
+            handle.text = uid.handle ?? ""
+            location.text = uid.location ?? ""
+            profileView.isHidden = false
+            noProfileView.isHidden = true
         } else {
-            name.text = "Your name"
-            handle.text = "Your handle"
-            location.text = "Your location"
+            profileView.isHidden = true
+            noProfileView.isHidden = false
         }
+    }
+    
+    @IBAction func onEdit(_ sender: AButton) {
+        shouldEdit = true
+        performSegue(withIdentifier: "EditProfile", sender: self)
+    }
+    
+    @IBAction func onCreate(_ sender: AButton) {
+        shouldEdit = false
+        performSegue(withIdentifier: "EditProfile", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,7 +47,7 @@ class UserIdentityViewController: UIViewController {
         switch (sid) {
         case "EditProfile":
             if let viewController = segue.destination as? EditUserViewController {
-                viewController.newUser = false
+                viewController.newUser = !self.shouldEdit
             }
         default:
             break

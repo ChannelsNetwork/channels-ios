@@ -54,10 +54,6 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
                 if let scvc = segue.destination as? ShareCodeViewController {
                     scvc.delegate = self
                 }
-//            case "ConfigureUser":
-//                if let viewController = segue.destination as? EditUserViewController {
-//                    viewController.newUser = true
-//                }
             default:
                 break
         }
@@ -86,15 +82,6 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
     
     private func checkUser() {
         self.gotoMain()
-//        if let address = IdentityManager.instance.userIdentity?.address {
-//            if address.characters.count > 0 {
-//                self.gotoMain()
-//                return
-//            }
-//        }
-//        DispatchQueue.main.async {
-//            self.performSegue(withIdentifier: "ConfigureUser", sender: self)
-//        }
     }
     
     private func gotoMain() {
