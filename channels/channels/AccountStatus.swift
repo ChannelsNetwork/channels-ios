@@ -11,7 +11,7 @@ import ObjectMapper
 
 class AccountStatus: Mappable {
     var goLive: Int = 0
-    var userBalance: Int = 0
+    var userBalance: Double = 0
     var networkBalance: Int = 0
     var invitationsUsed: Int = 0
     var invitationsRemaining: Int = 0

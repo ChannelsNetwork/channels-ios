@@ -20,10 +20,6 @@ class  ShareCodeViewController: UIViewController {
         dismissView(code: shareCode.text)
     }
     
-    @IBAction func onSkip(_ sender: UIButton) {
-        dismissView(code: nil)
-    }
-    
     private func dismissView(code: String?) {
         self.delegate?.shareCode = code
         self.dismiss(animated: false, completion: nil)

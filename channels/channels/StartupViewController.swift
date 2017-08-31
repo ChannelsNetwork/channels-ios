@@ -13,10 +13,14 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
     private var registered: Bool = false
     var shareCode: String? = nil
     
+    @IBOutlet weak var tryAgain: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
+    
     override func viewDidLoad() {
         segueOnAppear = nil
         var hasKey = IdentityManager.instance.ensureKey(autoGenerate: false)
-        if (!hasKey) {
+        if (hasKey) {
             hasKey = IdentityManager.instance.ensureKey(autoGenerate: true)
             if (!hasKey) {
                 UIUtils.showError("Faild to create key. This should never happen")
@@ -37,6 +41,10 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
         }
     }
     
+    @IBAction func onTryAgain(_ sender: UIButton) {
+        register()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let sid = segue.identifier else {
             return
@@ -46,20 +54,22 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
                 if let scvc = segue.destination as? ShareCodeViewController {
                     scvc.delegate = self
                 }
-            case "ConfigureUser":
-                if let viewController = segue.destination as? EditUserViewController {
-                    viewController.newUser = true
-                }
+//            case "ConfigureUser":
+//                if let viewController = segue.destination as? EditUserViewController {
+//                    viewController.newUser = true
+//                }
             default:
                 break
         }
     }
     
     private func register() {
+        self.showProgress("Connectiong to channels...")
         ChannelService.instance.register(inviteCode: shareCode) { (response: RegisterResponse?, err: Error?) in
             if err != nil {
-                UIUtils.showError("Error registering with server: \(err!.localizedDescription)")
+                self.showError("Error registering with server: \(err!.localizedDescription)", tryAgain: true)
             } else {
+                self.hideProgress()
                 self.registered = true
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 let firstTime = appDelegate.firstTime
@@ -75,21 +85,46 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
     }
     
     private func checkUser() {
-        if let address = IdentityManager.instance.userIdentity?.address {
-            if address.characters.count > 0 {
-                self.gotoMain()
-                return
-            }
-        }
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "ConfigureUser", sender: self)
-        }
+        self.gotoMain()
+//        if let address = IdentityManager.instance.userIdentity?.address {
+//            if address.characters.count > 0 {
+//                self.gotoMain()
+//                return
+//            }
+//        }
+//        DispatchQueue.main.async {
+//            self.performSegue(withIdentifier: "ConfigureUser", sender: self)
+//        }
     }
     
     private func gotoMain() {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ShowFeed", sender: self)
         }
+    }
+    
+    private func showProgress(_ message: String) {
+        hideError()
+        progressLabel.text = message
+        progressLabel.isHidden = false
+    }
+    
+    private func hideProgress() {
+        progressLabel.text = ""
+        progressLabel.isHidden = true
+    }
+    
+    private func hideError() {
+        errorLabel.text = "";
+        errorLabel.isHidden = true
+        tryAgain.isHidden = true
+    }
+    
+    private func showError(_ message: String, tryAgain: Bool) {
+        hideProgress()
+        errorLabel.text = message
+        errorLabel.isHidden = false
+        self.tryAgain.isHidden = !tryAgain
     }
     
 }
