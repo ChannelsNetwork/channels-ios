@@ -21,7 +21,11 @@ class UserIdentityViewController: UIViewController {
         if let uid = IdentityManager.instance.userIdentity {
             name.text = uid.name ?? ""
             handle.text = uid.handle ?? ""
-            location.text = uid.location ?? ""
+            var locationValue = uid.location ?? "unknown";
+            if locationValue.characters.count == 0 {
+                locationValue = "unknown"
+            }
+            location.text = locationValue
             profileView.isHidden = false
             noProfileView.isHidden = true
         } else {
