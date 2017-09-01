@@ -19,4 +19,16 @@ class CoreUtils {
         }
         return RestRequest(details: json, signature: signature)
     }
+    
+    static let transformInt64 = TransformOf<Int64, Double>(fromJSON: { (value: Double?) -> Int64? in
+        guard let v = value else {
+            return nil
+        }
+        return Int64(v)
+    }) { (value: Int64?) -> Double? in
+        guard let v = value else {
+            return nil
+        }
+        return Double(v)
+    }
 }

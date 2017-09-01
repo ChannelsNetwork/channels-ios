@@ -10,9 +10,9 @@ import Foundation
 import ObjectMapper
 
 class AccountStatus: Mappable {
-    var goLive: Int = 0
+    var goLive: Int64 = 0
     var userBalance: Double = 0
-    var networkBalance: Int = 0
+    var networkBalance: Double = 0
     var invitationsUsed: Int = 0
     var invitationsRemaining: Int = 0
     var inviterRewards: Int = 0
@@ -23,7 +23,7 @@ class AccountStatus: Mappable {
     }
     
     func mapping(map: Map) {
-        goLive                  <- map["goLive"]
+        goLive                  <- (map["goLive"], CoreUtils.transformInt64)
         userBalance             <- map["userBalance"]
         networkBalance          <- map["networkBalance"]
         invitationsUsed         <- map["invitationsUsed"]

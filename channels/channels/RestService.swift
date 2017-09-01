@@ -24,6 +24,7 @@ class RestService {
         if body != nil {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = body!.toJSONString()?.data(using: .utf8)
+            print("Http body: \(body!.toJSONString()!)")
         }
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, err: Error?) in
             if (err != nil) {

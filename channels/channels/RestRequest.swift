@@ -32,9 +32,9 @@ class RestRequest: Mappable {
 
 class Signable: Mappable {
     var address: String?
-    var timestamp: Int?
+    var timestamp: Int64?
     
-    init(address: String, timestamp: Int) {
+    init(address: String, timestamp: Int64) {
         self.address = address
         self.timestamp = timestamp
     }
@@ -44,7 +44,7 @@ class Signable: Mappable {
     
     func mapping(map: Map) {
         address     <- map["address"]
-        timestamp   <- map["timestamp"]
+        timestamp   <- (map["timestamp"], CoreUtils.transformInt64)
     }
 }
 
@@ -52,7 +52,7 @@ class RegisterUserDetails: Signable {
     var publicKey: String?
     var inviteCode: String?
     
-    init(address: String, publicKey: String, inviteCode: String?, timestamp: Int) {
+    init(address: String, publicKey: String, inviteCode: String?, timestamp: Int64) {
         super.init(address: address, timestamp: timestamp)
         self.publicKey = publicKey
         self.inviteCode = inviteCode
@@ -69,10 +69,12 @@ class RegisterUserDetails: Signable {
     }
 }
 
+class GetUserIdentityDetails: Signable {}
+
 class RegisterDeviceDetails: Signable {
     var deviceToken: String?
     
-    init(address: String, token: String, timestamp: Int) {
+    init(address: String, token: String, timestamp: Int64) {
         super.init(address: address, timestamp: timestamp)
         self.deviceToken = token
     }
@@ -93,7 +95,7 @@ class UpdateIdentityDetails: Signable {
     var location: String?
     var imageUrl: String?
     
-    init(address: String, name: String, handle: String, location: String?, timestamp: Int) {
+    init(address: String, name: String, handle: String, location: String?, timestamp: Int64) {
         super.init(address: address, timestamp: timestamp)
         self.name = name
         self.handle = handle

@@ -67,16 +67,37 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
             } else {
                 self.hideProgress()
                 self.registered = true
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                let firstTime = appDelegate.firstTime
-                if firstTime  {
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "EnableNotifications", sender: self)
+                self.loadIdentity()
+            }
+        }
+    }
+    
+    private func loadIdentity() {
+        ChannelService.instance.getUserIdentity { (identityResponse: GetUserIdentityResponse?, _) in
+            if let identity = identityResponse {
+                if let handle = identity.handle {
+                    if handle.characters.count > 0 {
+                        let userIdentity = UserIdentity(address: IdentityManager.instance.userAddress, name: identity.name!, handle: identity.handle!, location: identity.location)
+                        IdentityManager.instance.saveUserIdentity(userIdentity, callback: { (_) in
+                            self.proceedAfterRegistration()
+                        })
+                        return;
                     }
-                } else {
-                    self.checkUser()
                 }
             }
+            self.proceedAfterRegistration()
+        }
+    }
+    
+    private func proceedAfterRegistration() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let firstTime = appDelegate.firstTime
+        if firstTime  {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "EnableNotifications", sender: self)
+            }
+        } else {
+            self.checkUser()
         }
     }
     
