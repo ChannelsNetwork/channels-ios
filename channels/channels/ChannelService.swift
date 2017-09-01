@@ -25,9 +25,9 @@ class ChannelService {
         }
     }
     
-    private func now() -> Int {
+    private func now() -> Int64 {
         let timeInterval = Date().timeIntervalSince1970
-        return Int(timeInterval * 1000)
+        return Int64(timeInterval * 1000)
     }
     
     func register(inviteCode: String?, callback: @escaping (RegisterResponse?, Error?) -> Void) {
@@ -73,6 +73,18 @@ class ChannelService {
         let url = restRoot + "/update-identity"
         RestService.Post(url, body: request) { (_: NullResponse?, err: Error?) in
             callback(err)
+        }
+    }
+    
+    func getUserIdentity(callback: @escaping (GetUserIdentityResponse?, Error?) -> Void) {
+        let details = GetUserIdentityDetails(address: IdentityManager.instance.userAddress, timestamp: now())
+        guard let request = CoreUtils.restRequestFor(data: details) else {
+            callback(nil, ChannelsError.message("Failed to sign and create request"))
+            return
+        }
+        let url = restRoot + "/get-identity"
+        RestService.Post(url, body: request) { (response: GetUserIdentityResponse?, err: Error?) in
+            callback(response, err)
         }
     }
 }

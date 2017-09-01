@@ -11,14 +11,12 @@ import UIKit
 class BalanceViewController: UIViewController {
     
     @IBOutlet weak var userBalance: UILabel!
-    @IBOutlet weak var networkBalance: UILabel!
     
     override func viewDidAppear(_ animated: Bool) {
         guard let status = ChannelService.instance.accountStatus else {
             return
         }
-        userBalance.text = String(status.userBalance)
-        networkBalance.text = String(status.networkBalance)
+        userBalance.text = "Balance: CC " + String(format: "%.3f", status.userBalance)
     }
 
 }

@@ -10,6 +10,9 @@ import UIKit
 
 class LaunchViewController: UIViewController {
     @IBOutlet weak var countdown: UILabel!
+    @IBOutlet weak var launchView: UIView!
+    @IBOutlet weak var pendingView: UIView!
+    @IBOutlet weak var pendingLabel: UILabel!
     
     private var status: AccountStatus?
     private var timer = Timer()
@@ -20,7 +23,7 @@ class LaunchViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        updateCountdown()
+        refresh()
         if !timerRunning {
             runTimer()
         }
@@ -31,42 +34,46 @@ class LaunchViewController: UIViewController {
         timerRunning = false
     }
     
-    private func updateCountdown() {
+    private func refresh() {
         var diff = TimeInterval(status!.goLive / 1000)
         let now = Date().timeIntervalSince1970
         diff.subtract(now)
+        
+        if diff < 0 {
+            launchView.isHidden = true
+            pendingView.isHidden = false
+            pendingLabel.text = "We're live but in limited release.  We'll let you know as soon as we're ready for you."
+        } else {
+            launchView.isHidden = false
+            pendingView.isHidden = true
+            updateCountdown(diff)
+        }
+    }
+    
+    private func updateCountdown(_ diff: TimeInterval) {
         let days = Int(diff) / (3600 * 24)
         let hours = Int(diff) / 3600 % 24
         let minutes = Int(diff) / 60 % 60
         let seconds = Int(diff) % 60
         var display = "";
-        if days == 1 {
-           display += "1 day\n"
-        } else if days > 1 {
-            display += "\(days) days\n"
+        if days > 0 {
+            display += "\(days)d "
         }
-        if hours == 1 {
-            display += "1 hour\n"
-        } else if hours > 1 {
-            display += "\(hours) hours\n"
+        if hours >= 0 {
+            display += "\(hours)h "
         }
-        if minutes == 1 {
-            display += "1 minute\n"
-        } else {
-            display += "\(minutes) minutes\n"
+        if minutes >= 0 {
+            display += "\(minutes)m "
         }
-        if seconds == 1 {
-            display += "1 second"
-        } else {
-            display += "\(seconds) seconds"
+        if seconds >= 0 {
+            display += "\(seconds)s"
         }
-//        let display = "\(hours)" //String(format:"%02i days\n%02i hours\n%02i minutes\n%02i seconds", days, hours, minutes, seconds)
-        countdown.text = display
+        countdown.text = display.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     private func runTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (t: Timer) in
-            self.updateCountdown()
+            self.refresh()
         })
         timerRunning = true
     }

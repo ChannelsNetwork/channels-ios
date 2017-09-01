@@ -22,6 +22,12 @@
 		0D1A3CB11F47967800B642A4 /* channels-ios-jsutils.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D1A3CB01F47967800B642A4 /* channels-ios-jsutils.js */; };
 		0D2409F01F50A4430055730B /* EnableNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2409EF1F50A4430055730B /* EnableNotificationsViewController.swift */; };
 		0D4ABF681F50DA4C00832B2A /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4ABF671F50DA4C00832B2A /* EditUserViewController.swift */; };
+		0D8F301E1F573F69006F56FF /* bluebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8F301C1F573F69006F56FF /* bluebg.png */; };
+		0D8F30271F573FE7006F56FF /* logo-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8F30261F573FE7006F56FF /* logo-full.png */; };
+		0D8F30291F5745B0006F56FF /* bluebg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D8F30281F5745B0006F56FF /* bluebg.jpg */; };
+		0D8F302C1F576232006F56FF /* AButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F302B1F576232006F56FF /* AButton.swift */; };
+		0D8F302E1F57866F006F56FF /* greenbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8F302D1F57866F006F56FF /* greenbg.png */; };
+		0D8F30301F578765006F56FF /* redbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8F302F1F578765006F56FF /* redbg.png */; };
 		0DA4F4661F4379700037ED69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA4F4651F4379700037ED69 /* AppDelegate.swift */; };
 		0DA4F46B1F4379700037ED69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4F4691F4379700037ED69 /* Main.storyboard */; };
 		0DA4F46D1F4379700037ED69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4F46C1F4379700037ED69 /* Assets.xcassets */; };
@@ -35,7 +41,6 @@
 		0DA70A261F4F8E0A00F5E8E1 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0DA70A1F1F4F8E0A00F5E8E1 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0DE399D41F4BA74B0043805F /* UserIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE399D31F4BA74B0043805F /* UserIdentity.swift */; };
 		0DE5426A1F54E31F0040D1A8 /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE542691F54E31F0040D1A8 /* RestResponse.swift */; };
-		0DF878AD1F46091A0042DEA7 /* a1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF878AC1F46091A0042DEA7 /* a1.png */; };
 		0DF878B01F460AE90042DEA7 /* ShareCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF878AF1F460AE80042DEA7 /* ShareCodeViewController.swift */; };
 		0DF878B71F4646980042DEA7 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF878B61F4646980042DEA7 /* IdentityManager.swift */; };
 		4B0E67BBEEA142C6414532E2 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733DE993F91B4C4C8D50581A /* Pods_OneSignalNotificationServiceExtension.framework */; };
@@ -149,6 +154,12 @@
 		0D1A3CB01F47967800B642A4 /* channels-ios-jsutils.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "channels-ios-jsutils.js"; sourceTree = "<group>"; };
 		0D2409EF1F50A4430055730B /* EnableNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnableNotificationsViewController.swift; sourceTree = "<group>"; };
 		0D4ABF671F50DA4C00832B2A /* EditUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
+		0D8F301C1F573F69006F56FF /* bluebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluebg.png; sourceTree = "<group>"; };
+		0D8F30261F573FE7006F56FF /* logo-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-full.png"; sourceTree = "<group>"; };
+		0D8F30281F5745B0006F56FF /* bluebg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bluebg.jpg; sourceTree = "<group>"; };
+		0D8F302B1F576232006F56FF /* AButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AButton.swift; sourceTree = "<group>"; };
+		0D8F302D1F57866F006F56FF /* greenbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenbg.png; sourceTree = "<group>"; };
+		0D8F302F1F578765006F56FF /* redbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbg.png; sourceTree = "<group>"; };
 		0DA4F4621F4379700037ED69 /* channels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = channels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA4F4651F4379700037ED69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DA4F46A1F4379700037ED69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -166,7 +177,6 @@
 		0DA70A321F4F9BA700F5E8E1 /* channels.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = channels.entitlements; sourceTree = "<group>"; };
 		0DE399D31F4BA74B0043805F /* UserIdentity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIdentity.swift; sourceTree = "<group>"; };
 		0DE542691F54E31F0040D1A8 /* RestResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
-		0DF878AC1F46091A0042DEA7 /* a1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a1.png; sourceTree = "<group>"; };
 		0DF878AF1F460AE80042DEA7 /* ShareCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareCodeViewController.swift; sourceTree = "<group>"; };
 		0DF878B61F4646980042DEA7 /* IdentityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityManager.swift; sourceTree = "<group>"; };
 		733DE993F91B4C4C8D50581A /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +249,14 @@
 			path = channels/Scripts;
 			sourceTree = "<group>";
 		};
+		0D8F302A1F5761F0006F56FF /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				0D8F302B1F576232006F56FF /* AButton.swift */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
 		0DA4F4591F4379700037ED69 = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +290,7 @@
 				0DA4F4691F4379700037ED69 /* Main.storyboard */,
 				0DE399D21F4BA6E30043805F /* Model */,
 				0DF878B51F4646780042DEA7 /* Core */,
+				0D8F302A1F5761F0006F56FF /* Controls */,
 				0D0BA9BC1F4D06A000234C3F /* Identity UI */,
 				0DA70A121F4F5CDD00F5E8E1 /* Launch UI */,
 				0DF878A81F4606B10042DEA7 /* Supporting Files */,
@@ -333,7 +352,11 @@
 		0DF878AB1F46091A0042DEA7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				0DF878AC1F46091A0042DEA7 /* a1.png */,
+				0D8F302F1F578765006F56FF /* redbg.png */,
+				0D8F302D1F57866F006F56FF /* greenbg.png */,
+				0D8F30281F5745B0006F56FF /* bluebg.jpg */,
+				0D8F30261F573FE7006F56FF /* logo-full.png */,
+				0D8F301C1F573F69006F56FF /* bluebg.png */,
 			);
 			name = Images;
 			path = channels/Images;
@@ -530,12 +553,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D8F302E1F57866F006F56FF /* greenbg.png in Resources */,
+				0D8F301E1F573F69006F56FF /* bluebg.png in Resources */,
+				0D8F30301F578765006F56FF /* redbg.png in Resources */,
 				0DA4F4701F4379700037ED69 /* LaunchScreen.storyboard in Resources */,
+				0D8F30291F5745B0006F56FF /* bluebg.jpg in Resources */,
 				0DA4F46D1F4379700037ED69 /* Assets.xcassets in Resources */,
 				0D0BA9F61F4E3FA700234C3F /* config.plist in Resources */,
+				0D8F30271F573FE7006F56FF /* logo-full.png in Resources */,
 				0D1A3CB11F47967800B642A4 /* channels-ios-jsutils.js in Resources */,
 				0DA4F46B1F4379700037ED69 /* Main.storyboard in Resources */,
-				0DF878AD1F46091A0042DEA7 /* a1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,6 +676,7 @@
 				0D0BA9F81F4E40F500234C3F /* Config.swift in Sources */,
 				0DE399D41F4BA74B0043805F /* UserIdentity.swift in Sources */,
 				0D0BA9F21F4E197300234C3F /* ChannelsError.swift in Sources */,
+				0D8F302C1F576232006F56FF /* AButton.swift in Sources */,
 				0DA70A161F4F68B500F5E8E1 /* InviteViewController.swift in Sources */,
 				0D0BA9F41F4E1EFA00234C3F /* RestRequest.swift in Sources */,
 				0DF878B01F460AE90042DEA7 /* ShareCodeViewController.swift in Sources */,

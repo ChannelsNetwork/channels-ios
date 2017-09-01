@@ -13,27 +13,26 @@ class EditUserViewController: UIViewController {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var handle: UITextField!
     @IBOutlet weak var location: UITextField!
-    @IBOutlet weak var cancel: UIButton!
-    @IBOutlet weak var save: UIButton!
     
     var newUser: Bool = false
     
     override func viewWillAppear(_ animated: Bool) {
         if newUser {
-            formTitle.text = "New user"
-            cancel.isHidden = true
-        } else {
-            formTitle.text = "Edit user"
-            cancel.isHidden = false
-        }
-        if let uid = IdentityManager.instance.userIdentity {
-            name.text = uid.name ?? ""
-            handle.text = uid.handle ?? ""
-            location.text = uid.location ?? ""
-        } else {
+            formTitle.text = "Create identity"
             name.text = ""
             handle.text = ""
             location.text = ""
+        } else {
+            formTitle.text = "Edit identity"
+            if let uid = IdentityManager.instance.userIdentity {
+                name.text = uid.name ?? ""
+                handle.text = uid.handle ?? ""
+                location.text = uid.location ?? ""
+            } else {
+                name.text = ""
+                handle.text = ""
+                location.text = ""
+            }
         }
     }
     

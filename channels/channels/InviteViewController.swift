@@ -11,20 +11,15 @@ import UIKit
 class InviteViewController: UIViewController {
     
     @IBOutlet weak var code: UILabel!
-    @IBOutlet weak var copyButton: UIButton!
     
     var shareCode: String = ""
     
-    override func viewDidAppear(_ animated: Bool) {
-        // copyButton.titleLabel!.text = "Copy to clipboard"
+    override func viewWillAppear(_ animated: Bool) {
         code.text = shareCode
     }
     
     @IBAction func onCopy(_ sender: UIButton) {
         UIPasteboard.general.string = shareCode
-//        DispatchQueue.main.async {
-//            self.copyButton.titleLabel!.text = "Copied"
-//        }
     }
     
     @IBAction func onClose(_ sender: UIButton) {
