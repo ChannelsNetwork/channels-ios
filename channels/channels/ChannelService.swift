@@ -87,4 +87,16 @@ class ChannelService {
             callback(response, err)
         }
     }
+    
+    func getNews(callback: @escaping (GetNewsResponse?, Error?) -> Void) {
+        let details = GetNewsDetails(address: IdentityManager.instance.userAddress, maxCount: 50, timestamp: now())
+        guard let request = CoreUtils.restRequestFor(data: details) else {
+            callback(nil, ChannelsError.message("Failed to sign and create getNews request"))
+            return
+        }
+        let url = restRoot + "/get-news";
+        RestService.Post(url, body: request) { (response: GetNewsResponse?, err: Error?) in
+            callback(response, err)
+        }
+    }
 }

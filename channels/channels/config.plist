@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>serverUrl</key>
-	<string>https://channels.cc</string>
+	<string>http://localhost:33111</string>
 </dict>
 </plist>

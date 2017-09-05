@@ -343,6 +343,51 @@
             </objects>
             <point key="canvasLocation" x="1925.5999999999999" y="-168.6656671664168"/>
         </scene>
+        <!--News-->
+        <scene sceneID="6u1-c9-6wT">
+            <objects>
+                <tableViewController id="LVe-Lm-xdZ" customClass="NewsTableViewController" customModule="channels" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qpW-w4-596">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="u8T-fn-reI" detailTextLabel="kKH-C5-xqd" rowHeight="109" style="IBUITableViewCellStyleSubtitle" id="eMf-rz-u6K" customClass="NewsTableCell" customModule="channels" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="109"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eMf-rz-u6K" id="uMh-0t-YbB">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="108.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="u8T-fn-reI">
+                                            <rect key="frame" x="15" y="37" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="kKH-C5-xqd">
+                                            <rect key="frame" x="15" y="57.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LVe-Lm-xdZ" id="Yqu-iT-5UF"/>
+                            <outlet property="delegate" destination="LVe-Lm-xdZ" id="e1C-LI-XRe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="News" id="zRU-8R-vyI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WiB-gq-sVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2700" y="501"/>
+        </scene>
         <!--Launch-->
         <scene sceneID="erC-Pe-AHe">
             <objects>
@@ -763,6 +808,7 @@
                         <segue destination="J0q-aT-sxU" kind="relationship" relationship="viewControllers" id="HjT-mq-hVr"/>
                         <segue destination="U99-o3-VKK" kind="relationship" relationship="viewControllers" id="NNB-qB-da4"/>
                         <segue destination="q7X-xP-TNF" kind="relationship" relationship="viewControllers" id="4jX-uo-X4d"/>
+                        <segue destination="U3m-1h-wNk" kind="relationship" relationship="viewControllers" id="pxF-6N-caa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1o-aF-SMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -834,6 +880,25 @@
             </objects>
             <point key="canvasLocation" x="1925.5999999999999" y="-870.31484257871068"/>
         </scene>
+        <!--News-->
+        <scene sceneID="D3N-Qi-Zut">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U3m-1h-wNk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="typewriter" id="LEl-lt-zc1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dSm-xp-9Ok">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LVe-Lm-xdZ" kind="relationship" relationship="rootViewController" id="Cfx-2o-GZx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u7Q-Yv-m6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1925.5999999999999" y="501.49925037481262"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bluebg.jpg" width="2938" height="2209"/>
@@ -843,6 +908,7 @@
         <image name="launch" width="25" height="25"/>
         <image name="logo-full.png" width="2242" height="500"/>
         <image name="redbg.png" width="4538" height="2209"/>
+        <image name="typewriter" width="25" height="25"/>
         <image name="user" width="25" height="25"/>
     </resources>
 </document>
