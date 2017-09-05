@@ -114,3 +114,21 @@ class UpdateIdentityDetails: Signable {
         imageUrl   <- map["imageUrl"]
     }
 }
+
+class GetNewsDetails: Signable {
+    var maxCount: Int?
+    
+    init(address: String, maxCount: Int, timestamp: Int64) {
+        super.init(address: address, timestamp: timestamp)
+        self.maxCount = maxCount
+    }
+    
+    required init?(map: Map) {
+        super.init(map: map)
+    }
+    
+    override func mapping(map: Map) {
+        super.mapping(map: map)
+        maxCount     <- map["maxCount"]
+    }
+}

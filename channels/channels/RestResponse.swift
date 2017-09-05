@@ -45,3 +45,14 @@ class NullResponse: Mappable {
     func mapping(map: Map) {
     }
 }
+
+class GetNewsResponse: Mappable {
+    var items: [NewsItem]?
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        items <- map["items"]
+    }
+}

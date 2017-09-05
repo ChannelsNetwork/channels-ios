@@ -39,6 +39,8 @@
 		0DA70A1A1F4F764400F5E8E1 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA70A191F4F764400F5E8E1 /* BalanceViewController.swift */; };
 		0DA70A221F4F8E0A00F5E8E1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA70A211F4F8E0A00F5E8E1 /* NotificationService.swift */; };
 		0DA70A261F4F8E0A00F5E8E1 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0DA70A1F1F4F8E0A00F5E8E1 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0DB6ABDF1F5F0E2F004D3F2D /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6ABDE1F5F0E2F004D3F2D /* NewsItem.swift */; };
+		0DB6ABE81F5F117A004D3F2D /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6ABE71F5F117A004D3F2D /* NewsTableViewController.swift */; };
 		0DE399D41F4BA74B0043805F /* UserIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE399D31F4BA74B0043805F /* UserIdentity.swift */; };
 		0DE5426A1F54E31F0040D1A8 /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE542691F54E31F0040D1A8 /* RestResponse.swift */; };
 		0DF878B01F460AE90042DEA7 /* ShareCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF878AF1F460AE80042DEA7 /* ShareCodeViewController.swift */; };
@@ -175,6 +177,8 @@
 		0DA70A211F4F8E0A00F5E8E1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		0DA70A231F4F8E0A00F5E8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DA70A321F4F9BA700F5E8E1 /* channels.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = channels.entitlements; sourceTree = "<group>"; };
+		0DB6ABDE1F5F0E2F004D3F2D /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
+		0DB6ABE71F5F117A004D3F2D /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		0DE399D31F4BA74B0043805F /* UserIdentity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIdentity.swift; sourceTree = "<group>"; };
 		0DE542691F54E31F0040D1A8 /* RestResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
 		0DF878AF1F460AE80042DEA7 /* ShareCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareCodeViewController.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 				0D8F302A1F5761F0006F56FF /* Controls */,
 				0D0BA9BC1F4D06A000234C3F /* Identity UI */,
 				0DA70A121F4F5CDD00F5E8E1 /* Launch UI */,
+				0DB6ABE61F5F1151004D3F2D /* News UI */,
 				0DF878A81F4606B10042DEA7 /* Supporting Files */,
 			);
 			path = channels;
@@ -319,12 +324,21 @@
 			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
+		0DB6ABE61F5F1151004D3F2D /* News UI */ = {
+			isa = PBXGroup;
+			children = (
+				0DB6ABE71F5F117A004D3F2D /* NewsTableViewController.swift */,
+			);
+			name = "News UI";
+			sourceTree = "<group>";
+		};
 		0DE399D21F4BA6E30043805F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				0D0BA9CD1F4E032800234C3F /* Rest */,
 				0DE399D31F4BA74B0043805F /* UserIdentity.swift */,
 				0D0BA9C91F4DFD7400234C3F /* AccountStatus.swift */,
+				0DB6ABDE1F5F0E2F004D3F2D /* NewsItem.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -677,6 +691,7 @@
 				0DE399D41F4BA74B0043805F /* UserIdentity.swift in Sources */,
 				0D0BA9F21F4E197300234C3F /* ChannelsError.swift in Sources */,
 				0D8F302C1F576232006F56FF /* AButton.swift in Sources */,
+				0DB6ABDF1F5F0E2F004D3F2D /* NewsItem.swift in Sources */,
 				0DA70A161F4F68B500F5E8E1 /* InviteViewController.swift in Sources */,
 				0D0BA9F41F4E1EFA00234C3F /* RestRequest.swift in Sources */,
 				0DF878B01F460AE90042DEA7 /* ShareCodeViewController.swift in Sources */,
@@ -686,6 +701,7 @@
 				0DA4F4661F4379700037ED69 /* AppDelegate.swift in Sources */,
 				0D1A3CAD1F47958E00B642A4 /* JSUtils.swift in Sources */,
 				0D0BA9C21F4D222000234C3F /* UserIdentityViewController.swift in Sources */,
+				0DB6ABE81F5F117A004D3F2D /* NewsTableViewController.swift in Sources */,
 				0DF878B71F4646980042DEA7 /* IdentityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
