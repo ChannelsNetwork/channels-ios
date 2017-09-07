@@ -17,7 +17,11 @@ struct Config {
         if properties != nil {
             return
         }
-        guard let path = Bundle.main.path(forResource: "config", ofType: "plist") else {
+        var configPath = "config"
+        if _Platform.isSumulator {
+            configPath = "configdev"
+        }
+        guard let path = Bundle.main.path(forResource: configPath, ofType: "plist") else {
             print("Failed to load config file")
             return
         }

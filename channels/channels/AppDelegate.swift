@@ -55,11 +55,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        guard ChannelService.instance.registration != nil else {
+            return;
+        }
+        ChannelService.instance.getUserIdentity { (identityResponse: GetUserIdentityResponse?, _) in
+            if let identity = identityResponse {
+                if let handle = identity.handle {
+                    if handle.characters.count > 0 {
+                        let userIdentity = UserIdentity(address: IdentityManager.instance.userAddress, name: identity.name!, handle: identity.handle!, location: identity.location)
+                        IdentityManager.instance.saveUserIdentity(userIdentity, callback: { (_) in })
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

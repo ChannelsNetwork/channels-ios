@@ -12,7 +12,7 @@ class ChannelService {
     static let instance = ChannelService()
     
     private let restRoot: String
-    private var registration: RegisterResponse? = nil
+    public private(set) var registration: RegisterResponse? = nil
     
     private init() {
         let serverUrl = Config.get(Config.kServerUrl) ?? "http://localhost:33111"

@@ -65,7 +65,7 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
     }
     
     private func register() {
-        self.showProgress("Connectiong to channels...")
+        self.showProgress("Connecting to channels...")
         ChannelService.instance.register(inviteCode: shareCode) { (response: RegisterResponse?, err: Error?) in
             if err != nil {
                 self.showError("Error registering with server: \(err!.localizedDescription)", tryAgain: true)

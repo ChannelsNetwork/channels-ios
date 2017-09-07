@@ -39,6 +39,7 @@
 		0DA70A1A1F4F764400F5E8E1 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA70A191F4F764400F5E8E1 /* BalanceViewController.swift */; };
 		0DA70A221F4F8E0A00F5E8E1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA70A211F4F8E0A00F5E8E1 /* NotificationService.swift */; };
 		0DA70A261F4F8E0A00F5E8E1 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0DA70A1F1F4F8E0A00F5E8E1 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0DB1003B1F61B8F70010A243 /* configdev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DB1003A1F61B8F70010A243 /* configdev.plist */; };
 		0DB6ABDF1F5F0E2F004D3F2D /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6ABDE1F5F0E2F004D3F2D /* NewsItem.swift */; };
 		0DB6ABE81F5F117A004D3F2D /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6ABE71F5F117A004D3F2D /* NewsTableViewController.swift */; };
 		0DE399D41F4BA74B0043805F /* UserIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE399D31F4BA74B0043805F /* UserIdentity.swift */; };
@@ -177,6 +178,7 @@
 		0DA70A211F4F8E0A00F5E8E1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		0DA70A231F4F8E0A00F5E8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DA70A321F4F9BA700F5E8E1 /* channels.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = channels.entitlements; sourceTree = "<group>"; };
+		0DB1003A1F61B8F70010A243 /* configdev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = configdev.plist; path = channels/configdev.plist; sourceTree = "<group>"; };
 		0DB6ABDE1F5F0E2F004D3F2D /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 		0DB6ABE71F5F117A004D3F2D /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		0DE399D31F4BA74B0043805F /* UserIdentity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIdentity.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				0D1A3CAF1F47967800B642A4 /* Scripts */,
 				0DF878AB1F46091A0042DEA7 /* Images */,
 				0D0BA9F51F4E3FA700234C3F /* config.plist */,
+				0DB1003A1F61B8F70010A243 /* configdev.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				0DA4F46D1F4379700037ED69 /* Assets.xcassets in Resources */,
 				0D0BA9F61F4E3FA700234C3F /* config.plist in Resources */,
 				0D8F30271F573FE7006F56FF /* logo-full.png in Resources */,
+				0DB1003B1F61B8F70010A243 /* configdev.plist in Resources */,
 				0D1A3CB11F47967800B642A4 /* channels-ios-jsutils.js in Resources */,
 				0DA4F46B1F4379700037ED69 /* Main.storyboard in Resources */,
 			);
