@@ -54,6 +54,11 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
                 if let scvc = segue.destination as? ShareCodeViewController {
                     scvc.delegate = self
                 }
+            case "AppUpdate":
+                if let upvc = segue.destination as? UpgradeViewController {
+                    let appUrl = sender as? String
+                    upvc.appUrl = appUrl
+                }
             default:
                 break
         }
@@ -67,6 +72,14 @@ class StartupViewController: UIViewController, ShareCodeViewDelegate {
             } else {
                 self.hideProgress()
                 self.registered = true
+                if let appUrl = response?.appUpdateUrl {
+                    if appUrl.characters.count > 0 {
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "AppUpdate", sender: appUrl)
+                        }
+                        return
+                    }
+                }
                 self.loadIdentity()
             }
         }

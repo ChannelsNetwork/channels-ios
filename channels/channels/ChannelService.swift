@@ -36,7 +36,8 @@ class ChannelService {
             return
         }
         let im  = IdentityManager.instance
-        let details = RegisterUserDetails(address: im.userAddress, publicKey: im.publicKey, inviteCode: inviteCode, timestamp: now())
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let details = RegisterUserDetails(address: im.userAddress, publicKey: im.publicKey, inviteCode: inviteCode, appVersion: appVersion, timestamp: now())
         guard let request = CoreUtils.restRequestFor(data: details) else {
             callback(nil, ChannelsError.message("Failed to sign and create request"))
             return

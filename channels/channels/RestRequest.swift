@@ -51,11 +51,13 @@ class Signable: Mappable {
 class RegisterUserDetails: Signable {
     var publicKey: String?
     var inviteCode: String?
+    var appVersion: String?
     
-    init(address: String, publicKey: String, inviteCode: String?, timestamp: Int64) {
+    init(address: String, publicKey: String, inviteCode: String?, appVersion: String?, timestamp: Int64) {
         super.init(address: address, timestamp: timestamp)
         self.publicKey = publicKey
         self.inviteCode = inviteCode
+        self.appVersion = appVersion
     }
     
     required init?(map: Map) {
@@ -66,6 +68,7 @@ class RegisterUserDetails: Signable {
         super.mapping(map: map)
         publicKey     <- map["publicKey"]
         inviteCode   <- map["inviteCode"]
+        appVersion   <- map["appVersion"]
     }
 }
 

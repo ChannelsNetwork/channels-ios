@@ -12,12 +12,16 @@ import ObjectMapper
 
 class RegisterResponse: Mappable {
     var status: AccountStatus?
+    var appUpdateUrl: String?
+    var socketUrl: String?
     
     required init?(map: Map) {
     }
     
     func mapping(map: Map) {
-        status  <- map["status"]
+        status          <- map["status"]
+        appUpdateUrl    <- map["appUpdateUrl"]
+        socketUrl       <- map["socketUrl"]
     }
 }
 

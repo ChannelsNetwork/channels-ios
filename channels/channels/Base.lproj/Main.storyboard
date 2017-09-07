@@ -82,6 +82,7 @@
                         <segue destination="Wjq-VV-FYm" kind="presentation" identifier="AskShareCode" modalTransitionStyle="crossDissolve" id="Zhb-OR-Dcf"/>
                         <segue destination="yPk-GG-Aw9" kind="presentation" identifier="ShowFeed" modalTransitionStyle="crossDissolve" id="r6E-LO-olN"/>
                         <segue destination="uVs-5R-zqx" kind="presentation" identifier="EnableNotifications" id="jeF-b2-NaV"/>
+                        <segue destination="wLK-eH-Nd4" kind="presentation" identifier="AppUpdate" id="qpg-1L-XLQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -793,6 +794,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Sf-Lu-5bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="120.8" y="-111.0944527736132"/>
+        </scene>
+        <!--Upgrade View Controller-->
+        <scene sceneID="gbb-58-OdO">
+            <objects>
+                <viewController id="wLK-eH-Nd4" customClass="UpgradeViewController" customModule="channels" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GXT-sn-DRQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="DIo-i4-npr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FB6-yD-afO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="dfi-qx-1Uy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orw-ha-eud">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There's a new version of Channels available." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhl-9k-6N7">
+                                        <rect key="frame" x="8" y="31" width="359" height="67.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7M-W3-RT0" customClass="AButton" customModule="channels" customModuleProvider="target">
+                                        <rect key="frame" x="100.5" y="152" width="173" height="41"/>
+                                        <color key="backgroundColor" red="0.20283564809999999" green="0.58813175149999997" blue="1" alpha="0.84922445260000001" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
+                                        <state key="normal" title="Upgrade Channels">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onUpgrade:" destination="wLK-eH-Nd4" eventType="touchUpInside" id="ugE-Bb-pxv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.35429402370948904" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstItem="t7M-W3-RT0" firstAttribute="centerX" secondItem="orw-ha-eud" secondAttribute="centerX" id="CZ3-Mw-saS"/>
+                                    <constraint firstItem="jhl-9k-6N7" firstAttribute="leading" secondItem="orw-ha-eud" secondAttribute="leading" constant="8" id="Dsg-KO-BXP"/>
+                                    <constraint firstItem="jhl-9k-6N7" firstAttribute="top" secondItem="orw-ha-eud" secondAttribute="top" constant="31" id="QdC-PT-fpm"/>
+                                    <constraint firstAttribute="trailing" secondItem="jhl-9k-6N7" secondAttribute="trailing" constant="8" id="h5G-ZL-6Ja"/>
+                                    <constraint firstItem="t7M-W3-RT0" firstAttribute="top" secondItem="jhl-9k-6N7" secondAttribute="bottom" constant="53.5" id="lLZ-PQ-AMY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dfi-qx-1Uy" firstAttribute="centerY" secondItem="FB6-yD-afO" secondAttribute="centerY" id="0D3-2b-f4C"/>
+                            <constraint firstItem="dfi-qx-1Uy" firstAttribute="centerX" secondItem="FB6-yD-afO" secondAttribute="centerX" id="U1z-D5-J34"/>
+                            <constraint firstItem="dfi-qx-1Uy" firstAttribute="height" secondItem="FB6-yD-afO" secondAttribute="height" id="b5K-gn-RBH"/>
+                            <constraint firstItem="dfi-qx-1Uy" firstAttribute="width" secondItem="FB6-yD-afO" secondAttribute="width" id="de9-VJ-aKa"/>
+                            <constraint firstItem="orw-ha-eud" firstAttribute="width" secondItem="FB6-yD-afO" secondAttribute="width" id="gi3-xd-LNu"/>
+                            <constraint firstItem="orw-ha-eud" firstAttribute="centerY" secondItem="FB6-yD-afO" secondAttribute="centerY" id="lW4-SZ-0qn"/>
+                            <constraint firstItem="orw-ha-eud" firstAttribute="height" secondItem="FB6-yD-afO" secondAttribute="height" id="oK7-YQ-jbS"/>
+                            <constraint firstItem="orw-ha-eud" firstAttribute="centerX" secondItem="FB6-yD-afO" secondAttribute="centerX" id="x1b-oJ-xLq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2e9-E0-phg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800.79999999999995" y="-111.0944527736132"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vjv-ES-Xuf">

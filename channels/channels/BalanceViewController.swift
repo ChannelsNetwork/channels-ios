@@ -16,7 +16,7 @@ class BalanceViewController: UIViewController {
         guard let status = ChannelService.instance.accountStatus else {
             return
         }
-        userBalance.text = "Balance: CC " + String(format: "%.3f", status.userBalance)
+        userBalance.text = "Balance: ℂ" + String(format: "%.3f", status.userBalance)
     }
 
 }
