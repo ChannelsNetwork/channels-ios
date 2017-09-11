@@ -7,6 +7,16 @@ target 'channels' do
 
   # Pods for channels
   pod 'OneSignal', '>= 2.5.2', '< 3.0'
+  pod 'MaterialComponents/TextFields'
+  pod 'MaterialComponents/AppBar'
+  pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/Collections'
+  pod 'MaterialComponents/AnimationTiming'
+  pod 'MaterialComponents/FlexibleHeader'
+  pod 'MaterialComponents/Ink'
+  pod 'MaterialComponents/ShadowElevations'
+  pod 'MaterialComponents/ShadowLayer'
+  pod 'MaterialComponents/Typography'
 end
 
 target 'OneSignalNotificationServiceExtension' do
