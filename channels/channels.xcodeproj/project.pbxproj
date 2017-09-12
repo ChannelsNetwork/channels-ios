@@ -23,7 +23,8 @@
 		0D1A3CB11F47967800B642A4 /* channels-ios-jsutils.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D1A3CB01F47967800B642A4 /* channels-ios-jsutils.js */; };
 		0D2409F01F50A4430055730B /* EnableNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2409EF1F50A4430055730B /* EnableNotificationsViewController.swift */; };
 		0D45CAFF1F66FE5900F78083 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45CAFE1F66FE5900F78083 /* WebView.swift */; };
-		0D45CB071F67028900F78083 /* DummyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45CB061F67028900F78083 /* DummyWebView.swift */; };
+		0D45CB101F67216A00F78083 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D45CB0F1F67216A00F78083 /* dummy.json */; };
+		0D45CB131F6732E900F78083 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45CB121F6732E900F78083 /* FeedViewController.swift */; };
 		0D4ABF681F50DA4C00832B2A /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4ABF671F50DA4C00832B2A /* EditUserViewController.swift */; };
 		0D8F301E1F573F69006F56FF /* bluebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8F301C1F573F69006F56FF /* bluebg.png */; };
 		0D8F30271F573FE7006F56FF /* logo-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8F30261F573FE7006F56FF /* logo-full.png */; };
@@ -160,7 +161,8 @@
 		0D1A3CB01F47967800B642A4 /* channels-ios-jsutils.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "channels-ios-jsutils.js"; sourceTree = "<group>"; };
 		0D2409EF1F50A4430055730B /* EnableNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnableNotificationsViewController.swift; sourceTree = "<group>"; };
 		0D45CAFE1F66FE5900F78083 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		0D45CB061F67028900F78083 /* DummyWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyWebView.swift; sourceTree = "<group>"; };
+		0D45CB0F1F67216A00F78083 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dummy.json; path = channels/dummy.json; sourceTree = "<group>"; };
+		0D45CB121F6732E900F78083 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		0D4ABF671F50DA4C00832B2A /* EditUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
 		0D8F301C1F573F69006F56FF /* bluebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluebg.png; sourceTree = "<group>"; };
 		0D8F30261F573FE7006F56FF /* logo-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-full.png"; sourceTree = "<group>"; };
@@ -259,6 +261,14 @@
 			path = channels/Scripts;
 			sourceTree = "<group>";
 		};
+		0D45CB111F6732C400F78083 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				0D45CB121F6732E900F78083 /* FeedViewController.swift */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
 		0D8F302A1F5761F0006F56FF /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,12 +303,12 @@
 		0DA4F4641F4379700037ED69 /* channels */ = {
 			isa = PBXGroup;
 			children = (
+				0D45CB111F6732C400F78083 /* Feed */,
 				0DA70A321F4F9BA700F5E8E1 /* channels.entitlements */,
 				0DA4F4651F4379700037ED69 /* AppDelegate.swift */,
 				0D0BA9BD1F4D075500234C3F /* StartupViewController.swift */,
 				0D0BA9F11F4E197300234C3F /* ChannelsError.swift */,
 				0D0BA9F91F4E55A700234C3F /* UIUtils.swift */,
-				0D45CB061F67028900F78083 /* DummyWebView.swift */,
 				0DA4F4691F4379700037ED69 /* Main.storyboard */,
 				0DE399D21F4BA6E30043805F /* Model */,
 				0DF878B51F4646780042DEA7 /* Core */,
@@ -368,6 +378,7 @@
 				0DF878AB1F46091A0042DEA7 /* Images */,
 				0D0BA9F51F4E3FA700234C3F /* config.plist */,
 				0DB1003A1F61B8F70010A243 /* configdev.plist */,
+				0D45CB0F1F67216A00F78083 /* dummy.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -578,6 +589,7 @@
 			files = (
 				0D8F302E1F57866F006F56FF /* greenbg.png in Resources */,
 				0D8F301E1F573F69006F56FF /* bluebg.png in Resources */,
+				0D45CB101F67216A00F78083 /* dummy.json in Resources */,
 				0D8F30301F578765006F56FF /* redbg.png in Resources */,
 				0DA4F4701F4379700037ED69 /* LaunchScreen.storyboard in Resources */,
 				0D8F30291F5745B0006F56FF /* bluebg.jpg in Resources */,
@@ -694,12 +706,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D0BA9FA1F4E55A700234C3F /* UIUtils.swift in Sources */,
+				0D45CB131F6732E900F78083 /* FeedViewController.swift in Sources */,
 				0DA70A141F4F5CFD00F5E8E1 /* LaunchViewController.swift in Sources */,
 				0D0BA9BE1F4D075500234C3F /* StartupViewController.swift in Sources */,
 				0DE5426A1F54E31F0040D1A8 /* RestResponse.swift in Sources */,
 				0D0BA9C61F4DF31C00234C3F /* ChannelService.swift in Sources */,
 				0D1745AB1F6096DE00C80877 /* UpgradeViewController.swift in Sources */,
-				0D45CB071F67028900F78083 /* DummyWebView.swift in Sources */,
 				0D0BA9C81F4DF48D00234C3F /* RestService.swift in Sources */,
 				0DA70A091F4F41F300F5E8E1 /* CoreUtils.swift in Sources */,
 				0DA70A1A1F4F764400F5E8E1 /* BalanceViewController.swift in Sources */,

@@ -39,3 +39,17 @@ struct UIUtils {
         }.resume()
     }
 }
+
+struct Theme {
+    static var primary: UIColor {
+        get {
+            return UIColor(red: 0, green: 0.67, blue: 0.55, alpha: 1.0)
+        }
+    }
+    
+    static var primaryText: UIColor {
+        get {
+            return UIColor.white
+        }
+    }
+}
